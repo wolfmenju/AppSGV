@@ -1,0 +1,5 @@
+J:\PROYECTOS_VS_2015\AppSGV\Comun\bin\Debug\Comun.dll
+J:\PROYECTOS_VS_2015\AppSGV\Comun\bin\Debug\Comun.pdb
+J:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
+J:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.dll
+J:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.pdb

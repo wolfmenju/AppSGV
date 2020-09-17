@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B044BF9A-4E5B-4E8A-B647-1105805D1EAD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppInguiri</RootNamespace>
+    <AssemblyName>AppInguiri</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmPresentacionActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPresentacionActualiza.Designer.cs">
+      <DependentUpon>FrmPresentacionActualiza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPresentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPresentacion.Designer.cs">
+      <DependentUpon>FrmPresentacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmPresentacionActualiza.resx">
+      <DependentUpon>FrmPresentacionActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPresentacion.resx">
+      <DependentUpon>FrmPresentacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\1405979407_96395.ico" />
+    <Content Include="Imagenes\1405981010_43663.ico" />
+    <Content Include="Imagenes\Derecha.ico" />
+    <Content Include="Imagenes\doctor.ico" />
+    <Content Include="Imagenes\Green-Cart.ico" />
+    <Content Include="Imagenes\Izquierda.ico" />
+    <Content Include="Imagenes\pills_2.ico" />
+    <Content Include="Imagenes\report.ico" />
+    <Content Include="Imagenes\Sede.fw.png" />
+    <Content Include="Imagenes\shopping cart.ico" />
+    <Content Include="Imagenes\Sistema.ico" />
+    <Content Include="Imagenes\Wordpad.ico" />
+    <Content Include="Imagenes\X.ico" />
+    <Content Include="Imagenes\xActivar.ico" />
+    <Content Include="Imagenes\xCaja.ico" />
+    <Content Include="Imagenes\xCambiaClave.ico" />
+    <Content Include="Imagenes\xClientes.ico" />
+    <Content Include="Imagenes\xCompra.ico" />
+    <Content Include="Imagenes\xCompras.ico" />
+    <Content Include="Imagenes\xConsultaInventario.ico" />
+    <Content Include="Imagenes\xCuentas.ico" />
+    <Content Include="Imagenes\xDetalle.ico" />
+    <Content Include="Imagenes\xDocumento.ico" />
+    <Content Include="Imagenes\xFormato.ico" />
+    <Content Include="Imagenes\xGanancia.ico" />
+    <Content Include="Imagenes\xHistorial.ico" />
+    <Content Include="Imagenes\xImprimir.ico" />
+    <Content Include="Imagenes\xInventario.ico" />
+    <Content Include="Imagenes\xKardex.ico" />
+    <Content Include="Imagenes\xLaboratorio.ico" />
+    <Content Include="Imagenes\xListadoCaja.ico" />
+    <Content Include="Imagenes\xLocal.ico" />
+    <Content Include="Imagenes\xMedVencidos.ico" />
+    <Content Include="Imagenes\xMinimo.ico" />
+    <Content Include="Imagenes\xMonedas.ico" />
+    <Content Include="Imagenes\xPedido.ico" />
+    <Content Include="Imagenes\xPermiso.ico" />
+    <Content Include="Imagenes\xPresentacion.ico" />
+    <Content Include="Imagenes\xProducto.png" />
+    <Content Include="Imagenes\xProveedor.ico" />
+    <Content Include="Imagenes\xReporteGeneral.ico" />
+    <Content Include="Imagenes\xReporteMedicamento.ico" />
+    <Content Include="Imagenes\xSalir.ico" />
+    <Content Include="Imagenes\xStock.ico" />
+    <Content Include="Imagenes\xTransferencia.ico" />
+    <Content Include="Imagenes\xTransferenciax.ico" />
+    <Content Include="Imagenes\xVencidos.ico" />
+    <Content Include="Imagenes\xVendidos.ico" />
+    <Content Include="Imagenes\xVenta.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Comun\Comun.csproj">
+      <Project>{A18D176E-B3B6-41DF-B821-CEA55D49C26F}</Project>
+      <Name>Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidad\Entidad.csproj">
+      <Project>{53f14c23-c752-4b70-809a-4668e7b4b19f}</Project>
+      <Name>Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{9b497e84-3cae-4cbf-9047-17ae0a8a2d27}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
