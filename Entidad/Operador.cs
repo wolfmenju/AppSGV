@@ -8,17 +8,17 @@ namespace Entidad
 {
     public class Operador
     {
-        private int nidoperador;
-        private int nidpadre;
-        private int nidsesion;
-        private string sapematerno;
-        private string sapepaterno;
-        private string sgenero;
-        private string snombre;
-        private string snumdocu;
-        private string sobservacion;
-        private bool bactivo;
-        private DateTime dfechanac;
-        private DateTime dfechareg;
+        public int nidoperador { get; set; }
+        public bool bactivo { get; set; }
+        public DateTime dfechanac { get; set; }
+        public DateTime dfechareg { get; set; }
+        public int nidsesion { get; set; }
+        public string sapematerno { get; set; }
+        public string sapepaterno { get; set; }
+        public string sgenero { get; set; }
+        public string snombre { get; set; }
+        public string snumdocu { get; set; }
+        public string sobservacion { get; set; }
+        public int nidpadre { get; set; }
     }
 }

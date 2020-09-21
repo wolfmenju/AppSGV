@@ -25,7 +25,7 @@ namespace Negocio
         //Actualizar
         public int ActualizarPresentacion(int idPresentacion, string descripcion)
         {
-            return DatPresentacion.ActualizarPresentacion(idPresentacion,descripcion);
+            return DatPresentacion.ActualizarPresentacion(idPresentacion, descripcion);
         }
 
         //Registrar
