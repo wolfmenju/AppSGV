@@ -24,5 +24,12 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void barBtnProveedor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmProveedor fr = new FrmProveedor();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }

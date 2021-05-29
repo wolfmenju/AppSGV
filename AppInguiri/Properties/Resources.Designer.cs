@@ -59,5 +59,15 @@ namespace AppInguiri.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xLaboratorio {
+            get {
+                object obj = ResourceManager.GetObject("xLaboratorio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

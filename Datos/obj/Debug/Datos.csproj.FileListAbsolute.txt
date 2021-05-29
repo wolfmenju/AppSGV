@@ -5,3 +5,10 @@ J:\PROYECTOS_VS_2015\AppSGV\Datos\bin\Debug\Entidad.pdb
 J:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 J:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.dll
 J:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.pdb
+D:\PROYECTOS_VS_2015\AppSGV\Datos\bin\Debug\Datos.dll
+D:\PROYECTOS_VS_2015\AppSGV\Datos\bin\Debug\Datos.pdb
+D:\PROYECTOS_VS_2015\AppSGV\Datos\bin\Debug\Entidad.dll
+D:\PROYECTOS_VS_2015\AppSGV\Datos\bin\Debug\Entidad.pdb
+D:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+D:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.dll
+D:\PROYECTOS_VS_2015\AppSGV\Datos\obj\Debug\Datos.pdb

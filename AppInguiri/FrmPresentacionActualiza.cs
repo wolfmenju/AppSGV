@@ -15,7 +15,7 @@ namespace AppInguiri
 {
     public partial class FrmPresentacionActualiza : Form
     {
-        NegPresentacion objPresenNeg = new NegPresentacion();
+        PresentacionNegocio objPresenNeg = new PresentacionNegocio();
         public int tipo=0;
         public int idPresentacion = 0;
         public string descripcion = "";

@@ -70,6 +70,12 @@
     <Compile Include="FrmPresentacion.Designer.cs">
       <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmPresentacionActualiza.resx">
@@ -81,12 +87,16 @@
     <EmbeddedResource Include="FrmPresentacion.resx">
       <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +165,7 @@
     <Content Include="Imagenes\xVencidos.ico" />
     <Content Include="Imagenes\xVendidos.ico" />
     <Content Include="Imagenes\xVenta.ico" />
+    <None Include="Resources\xLaboratorio.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Comun\Comun.csproj">

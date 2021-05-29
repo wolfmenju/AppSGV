@@ -15,7 +15,7 @@ namespace AppInguiri
 {
     public partial class FrmPresentacion : Form
     {
-        NegPresentacion objPresenNeg =new NegPresentacion();
+        PresentacionNegocio objPresenNeg =new PresentacionNegocio();
         List<Presentacion> listPresenta = new List<Presentacion>();
 
         public FrmPresentacion()
