@@ -15,8 +15,13 @@ namespace AppInguiri
 {
     public partial class FrmPresentacion : Form
     {
-        PresentacionNegocio objPresenNeg =new PresentacionNegocio();
-        List<Presentacion> listPresenta = new List<Presentacion>();
+        #region Variables Privadas
+        private PresentacionNegocio objPresenNeg =new PresentacionNegocio();
+        private List<Presentacion> listPresenta = new List<Presentacion>();
+        private bool estado = true;
+        #endregion
+        
+        #region Principal Load
 
         public FrmPresentacion()
         {
@@ -27,35 +32,18 @@ namespace AppInguiri
         {
             CargarPresentacion();
         }
+        #endregion
 
-        private void CargarPresentacion()
-        {
-            bool activo =true;
-            listPresenta = objPresenNeg.ListarPresentacion(activo);
-
-            if (listPresenta.Count() > 0)
-            {
-                DgPresentacion.DataSource = listPresenta;
-            }
-            else
-            {
-                BtnModificar.Enabled = false;
-                BtnEliminar.Enabled = false;
-                BtnRefrescar.Enabled = false;
-                BtnBuscar.Enabled = false;
-                DgPresentacion.DataSource = listPresenta;
-            }
-        }
-
+        #region Eventos
         private void FrmPresentacion_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.F1:
-                     BtnAgregar_Click(sender,e);
+                    BtnAgregar_Click(sender, e);
                     break;
                 case Keys.F2:
-                    BtnModificar_Click(sender,e);
+                    BtnModificar_Click(sender, e);
                     break;
                 case Keys.F3:
                     BtnRefrescar_Click(sender, e);
@@ -68,7 +56,7 @@ namespace AppInguiri
                     break;
             }
         }
-
+        
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
@@ -101,6 +89,8 @@ namespace AppInguiri
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
+            if (DgPresentacion.Rows.Count==0) return;
+
             int idPresSele = Convert.ToInt32(DgPresentacion.CurrentRow.Cells[0].Value);
             string descSele = Convert.ToString(DgPresentacion.CurrentRow.Cells[1].Value);
 
@@ -137,9 +127,11 @@ namespace AppInguiri
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            if (DgPresentacion.Rows.Count == 0) return;
+
             List<Presentacion> listPresenta = new List<Presentacion>();
             string ProductoBuscar = Interaction.InputBox("","Buscar Producto...");
-            listPresenta = objPresenNeg.ListarBuscarPresentacion(true, ProductoBuscar);
+            listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
             DgPresentacion.DataSource = listPresenta;
         }
 
@@ -154,13 +146,31 @@ namespace AppInguiri
             
             if (DgPresentacion.RowCount>0)
             {
-                int idPresSele = Convert.ToInt32(DgPresentacion.CurrentRow.Cells[0].Value);
-                respuesta = objPresenNeg.EliminarPresentacion(idPresSele);
+                string msg = "";
+                if (estado) { estado = false; msg = "Eliminar"; }
+                else { estado = true; msg = "Activar"; }
 
-                if (respuesta == 1)
+                DialogResult res;
+                res = MessageBox.Show("¿Desea "+ msg + " el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
                 {
-                    MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarPresentacion();
+                    int idPresSele = Convert.ToInt32(DgPresentacion.CurrentRow.Cells[0].Value);
+                    respuesta = objPresenNeg.EliminarActivarPresentacion(idPresSele, estado);
+
+                    if (respuesta == 1)
+                    {
+                        if (estado)
+                        {
+                            estado = false;
+                            MessageBox.Show("Se Activó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            estado = true;
+                            MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        CargarPresentacion();
+                    }
                 }
             }
             else
@@ -173,5 +183,44 @@ namespace AppInguiri
         {
             this.Close();
         }
+
+        private void ChkTodos_CheckedChanged(object sender, EventArgs e)
+        {
+
+            estado = ChkTodos.Checked;
+
+            if (ChkTodos.Checked)
+            {
+                BtnEliminar.Image = Properties.Resources.X;
+                BtnEliminar.Text = "&Eliminar  [F5]";
+            }
+            else
+            {
+                BtnEliminar.Image = Properties.Resources.xActivar;
+                BtnEliminar.Text = "&Activar  [F5]";
+            }
+
+            CargarPresentacion();
+        }
+        #endregion
+
+        #region Metodo Privados
+        private void CargarPresentacion()
+        {
+            listPresenta.Clear();
+            listPresenta = objPresenNeg.ListarPresentacion(estado);
+
+            if (listPresenta.Count() > 0)
+            {
+                DgPresentacion.DataSource = listPresenta;
+                LblTotal.Text = "Se Encontraron " + DgPresentacion.Rows.Count + " Registros";
+            }
+            else
+            {
+                DgPresentacion.DataSource = listPresenta;
+            }
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using Datos;
+﻿using Comun;
+using Datos;
 using Entidad;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class PresentacionNegocio
-    {
+     public class PresentacionNegocio
+     {
         //Listar
         public List<Presentacion> ListarPresentacion(bool activo)
         {
@@ -35,9 +36,9 @@ namespace Negocio
         }
 
         //Eliminar
-        public int EliminarPresentacion(int idPresentacion)
+        public int EliminarActivarPresentacion(int idPresentacion, bool estado)
         {
-            return PresentacionData.EliminarPresentacion(idPresentacion);
+            return PresentacionData.EliminarActivarPresentacion(idPresentacion,estado);
         }
 
     }

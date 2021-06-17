@@ -165,6 +165,33 @@
     <Content Include="Imagenes\xVencidos.ico" />
     <Content Include="Imagenes\xVendidos.ico" />
     <Content Include="Imagenes\xVenta.ico" />
+    <None Include="Resources\xSalir.ico" />
+    <None Include="Resources\xListadoCaja.ico" />
+    <None Include="Resources\xFormato.ico" />
+    <None Include="Resources\xConsultaInventario.ico" />
+    <None Include="Resources\xMedVencidos.ico" />
+    <None Include="Resources\xMinimo.ico" />
+    <None Include="Resources\xGanancia.ico" />
+    <None Include="Resources\xVendidos.ico" />
+    <None Include="Resources\xStock.ico" />
+    <None Include="Resources\xKardex.ico" />
+    <None Include="Resources\xVencidos.ico" />
+    <None Include="Resources\xReporteMedicamento.ico" />
+    <None Include="Resources\xHistorial.ico" />
+    <None Include="Resources\xCaja1.ico" />
+    <None Include="Resources\xMonedas.ico" />
+    <None Include="Resources\xCuentas.ico" />
+    <None Include="Resources\xCompra.ico" />
+    <None Include="Resources\shopping cart.ico" />
+    <None Include="Resources\xPedido.ico" />
+    <None Include="Resources\xTransferenciax.ico" />
+    <None Include="Resources\xInventario.ico" />
+    <None Include="Resources\xCambiaClave.ico" />
+    <None Include="Resources\xCaja.ico" />
+    <None Include="Resources\1405979407_96395.ico" />
+    <None Include="Resources\Wordpad.ico" />
+    <None Include="Resources\xDocumento.ico" />
+    <None Include="Resources\pills_2.ico" />
     <None Include="Resources\xLaboratorio.ico" />
   </ItemGroup>
   <ItemGroup>

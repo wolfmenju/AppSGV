@@ -16,3 +16,5 @@ D:\PROYECTOS_VS_2015\AppSGV\Negocio\bin\Debug\Entidad.pdb
 D:\PROYECTOS_VS_2015\AppSGV\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_VS_2015\AppSGV\Negocio\obj\Debug\Negocio.dll
 D:\PROYECTOS_VS_2015\AppSGV\Negocio\obj\Debug\Negocio.pdb
+D:\PROYECTOS_VS_2015\AppSGV\Negocio\bin\Debug\Comun.dll
+D:\PROYECTOS_VS_2015\AppSGV\Negocio\bin\Debug\Comun.pdb

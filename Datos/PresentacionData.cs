@@ -55,7 +55,7 @@ namespace Datos
         }
 
         //Listar Buscar
-        public static List<Presentacion> ListarBuscarPresentacion(bool activo, string descripcion)
+        public static List<Presentacion> ListarBuscarPresentacion(bool estado, string descripcion)
         {
             int tipo=5;
             SqlCommand cmd = null;
@@ -70,7 +70,7 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@IdPresentacion", "");
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                 cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", activo);
+                cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
                 dr = cmd.ExecuteReader();
@@ -171,7 +171,7 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarPresentacion(int idPresentacion)
+        public static int EliminarActivarPresentacion(int idPresentacion,bool estado)
         {
             int respuesta = 0, tipo=4;
             SqlCommand cmd = null;
@@ -185,7 +185,7 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
                 cmd.Parameters.AddWithValue("@Descripcion","");
                 cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", "");
+                cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 

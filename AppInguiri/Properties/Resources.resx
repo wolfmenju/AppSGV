@@ -118,7 +118,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="shopping cart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping cart.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xMinimo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xMinimo.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xStock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xStock.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xHistorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xHistorial.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wordpad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wordpad.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pills_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pills_2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xPedido" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xPedido.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xMedVencidos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xMedVencidos.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xTransferenciax" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xTransferenciax.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xFormato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xFormato.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xCuentas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xCuentas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xReporteMedicamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xReporteMedicamento.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xMonedas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xMonedas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xKardex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xKardex.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xConsultaInventario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xConsultaInventario.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xSalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xSalir.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xVendidos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xVendidos.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xDocumento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xDocumento.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xVencidos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xVencidos.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xCompra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xCompra.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xListadoCaja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xListadoCaja.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xGanancia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xGanancia.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xInventario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xInventario.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xCaja1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xCaja1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="xLaboratorio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xLaboratorio.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1405979407_96395" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1405979407_96395.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xActivar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\xActivar.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xCaja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xCaja.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xCambiaClave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xCambiaClave.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\X.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

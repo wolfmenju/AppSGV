@@ -8,3 +8,5 @@ D:\PROYECTOS_VS_2015\AppSGV\Comun\bin\Debug\Comun.pdb
 D:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.dll
 D:\PROYECTOS_VS_2015\AppSGV\Comun\obj\Debug\Comun.pdb
+D:\PROYECTOS_VS_2015\AppSGV\Comun\bin\Debug\Entidad.dll
+D:\PROYECTOS_VS_2015\AppSGV\Comun\bin\Debug\Entidad.pdb

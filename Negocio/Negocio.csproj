@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Comun\Comun.csproj">
+      <Project>{a18d176e-b3b6-41df-b821-cea55d49c26f}</Project>
+      <Name>Comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Datos\Datos.csproj">
       <Project>{98f476eb-da9e-4443-b7e6-1fb7a229e15e}</Project>
       <Name>Datos</Name>
