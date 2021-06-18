@@ -36,8 +36,8 @@ namespace Datos
                 while (dr.Read())
                 {
                     Presentacion objPresent = new Presentacion();
-                    objPresent.IdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.Descripcion = dr[1].ToString();
+                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
+                    objPresent.sDescripcion = dr[1].ToString();
 
                     listPresentacion.Add(objPresent);
 
@@ -78,8 +78,8 @@ namespace Datos
                 while (dr.Read())
                 {
                     Presentacion objPresent = new Presentacion();
-                    objPresent.IdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.Descripcion = dr[1].ToString();
+                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
+                    objPresent.sDescripcion = dr[1].ToString();
 
                     listPresentacion.Add(objPresent);
 

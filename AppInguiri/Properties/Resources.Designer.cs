@@ -83,6 +83,16 @@ namespace AppInguiri.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sede_fw {
+            get {
+                object obj = ResourceManager.GetObject("Sede.fw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shopping_cart {
             get {
                 object obj = ResourceManager.GetObject("shopping cart", resourceCulture);
@@ -256,6 +266,16 @@ namespace AppInguiri.Properties {
         internal static System.Drawing.Bitmap xListadoCaja {
             get {
                 object obj = ResourceManager.GetObject("xListadoCaja", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xLocal {
+            get {
+                object obj = ResourceManager.GetObject("xLocal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

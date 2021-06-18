@@ -8,24 +8,7 @@ namespace Entidad
 {
     public class Presentacion
     {
-        private int _IdPresentacion;
-        private string _Descripcion;
-
-        public Presentacion()
-        {
-
-        }
-
-        public int IdPresentacion
-        {
-            get { return _IdPresentacion; }
-            set { _IdPresentacion = value; }
-        }
-
-        public string Descripcion
-        {
-            get { return _Descripcion; }
-            set { _Descripcion = value; }
-        }
+        public int nIdPresentacion { get; set; }
+        public string sDescripcion { get; set; }
     }
 }

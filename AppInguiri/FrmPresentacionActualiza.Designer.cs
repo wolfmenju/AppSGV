@@ -35,7 +35,7 @@
             this.Label8 = new System.Windows.Forms.Label();
             this.LblCodigo = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
-            this.TxtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.PanSuperior.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.PanSuperior.Controls.Add(this.Label8);
             this.PanSuperior.Controls.Add(this.LblCodigo);
             this.PanSuperior.Controls.Add(this.Label6);
-            this.PanSuperior.Controls.Add(this.TxtDescripcion);
+            this.PanSuperior.Controls.Add(this.txtDescripcion);
             this.PanSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanSuperior.Location = new System.Drawing.Point(0, 0);
             this.PanSuperior.Name = "PanSuperior";
@@ -113,17 +113,17 @@
             this.Label6.TabIndex = 12;
             this.Label6.Text = "Código";
             // 
-            // TxtDescripcion
+            // txtDescripcion
             // 
-            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.TxtDescripcion.Location = new System.Drawing.Point(88, 36);
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(354, 20);
-            this.TxtDescripcion.TabIndex = 0;
-            this.TxtDescripcion.Tag = "2";
+            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
+            this.txtDescripcion.Location = new System.Drawing.Point(88, 36);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(354, 20);
+            this.txtDescripcion.TabIndex = 0;
+            this.txtDescripcion.Tag = "2";
             // 
             // FrmPresentacionActualiza
             // 
@@ -142,6 +142,7 @@
             this.Name = "FrmPresentacionActualiza";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Actualizar Presentación De Productos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPresentacionActualiza_FormClosing);
             this.Load += new System.EventHandler(this.FrmPresentacionNuevo_Load);
             this.PanSuperior.ResumeLayout(false);
             this.PanSuperior.PerformLayout();
@@ -157,6 +158,6 @@
         internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.Label LblCodigo;
         internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.TextBox TxtDescripcion;
+        internal System.Windows.Forms.TextBox txtDescripcion;
     }
 }

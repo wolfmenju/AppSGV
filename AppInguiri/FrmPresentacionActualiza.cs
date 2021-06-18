@@ -19,63 +19,75 @@ namespace AppInguiri
         public int tipo=0;
         public int idPresentacion = 0;
         public string descripcion = "";
-        public List<Presentacion> listarPresentacion = null; 
+        public List<Presentacion> listarPresentacion = null;
+        private bool cerrarFormulario = true;
 
         public FrmPresentacionActualiza()
         {
             InitializeComponent();
         }
 
+        private bool Validar()
+        {
+            bool resp = true;
+            if (txtDescripcion.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Descripción se encuentra vacía, por favor ingrese un valor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                resp = false;
+            }
+
+            cerrarFormulario = resp;
+            return resp;
+        }
+
+
         private void CmdGuardar_Click(object sender, EventArgs e)
         {
             int respuesta =0, idPresSele=0;
             string descSele = "";
-            
+
+            if (!Validar()) return;
             if (tipo == 2)
             {
-                if (Funciones.DatosVacios(TxtDescripcion.Text))
-                {
-                    MessageBox.Show("Campo esta vacío, por favor ingrese un valor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    descSele = TxtDescripcion.Text;
+                    descSele = txtDescripcion.Text;
                     respuesta = objPresenNeg.RegistrarPresentacion(descSele);
 
                     if (respuesta == 1)
                     {
                         MessageBox.Show("Se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        cerrarFormulario = true;
                     }
                     else
                     {
                         MessageBox.Show("No se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cerrarFormulario = false;
                     }
-                }
+                
             }
             else
             {
-                if (Funciones.DatosVacios(TxtDescripcion.Text))
+                idPresSele = Convert.ToInt32(LblCodigo.Text);
+                descSele = txtDescripcion.Text;
+                respuesta = objPresenNeg.ActualizarPresentacion(idPresSele, descSele);
+
+                if (respuesta == 1)
                 {
-                    MessageBox.Show("Campo esta vacío, por favor ingrese un valor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Se Actualizó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cerrarFormulario = true;
+                    this.Close();
                 }
                 else
                 {
-                    idPresSele = Convert.ToInt32(LblCodigo.Text);
-                    descSele = TxtDescripcion.Text;
-                    respuesta = objPresenNeg.ActualizarPresentacion(idPresSele, descSele);
-
-                    if (respuesta == 1)
-                    {
-                        MessageBox.Show("Se Actualizó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
+                    MessageBox.Show("No se Actualizó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cerrarFormulario = false;
                 }
+
             }
         }
 
         private void CmdCancelar_Click(object sender, EventArgs e)
         {
+            cerrarFormulario = true;
             this.Close();
         }
 
@@ -83,14 +95,20 @@ namespace AppInguiri
         {
             if (tipo == 2)
             {
-                //Insertar
+                LblCodigo.Text = "AUTOGENERADO";
             }
             else
             {
                 //Actualizar
                 LblCodigo.Text = Convert.ToString(idPresentacion.ToString());
-                TxtDescripcion.Text = descripcion.ToString();
+                txtDescripcion.Text = descripcion.ToString();
             }
+        }
+
+        private void FrmPresentacionActualiza_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cerrarFormulario) e.Cancel = false;
+            else e.Cancel = true;
         }
     }
 }

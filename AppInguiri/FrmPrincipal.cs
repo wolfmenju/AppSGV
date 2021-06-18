@@ -31,5 +31,12 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void barBtnUsuario_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmUsuario fr = new FrmUsuario();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }

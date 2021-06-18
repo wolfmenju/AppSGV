@@ -8,11 +8,17 @@ namespace Entidad
 {
     public class Usuario
     {
-        public int nidusuario { get; set; }
-        public bool bactivo { get; set; }
-        public DateTime dfechareg { get; set; }
-        public int nidsesion { get; set; }
-        public string slogin { get; set; }
-        public string spassword { get; set; }
+        public int nTipo { get; set; }
+        public string sIdUsuario { get; set; }
+        public string sNombres { get; set; }
+        public string sDni { get; set; }
+        public string sDireccion { get; set; }
+        public string sCelular { get; set; }
+        public string sLogin { get; set; }
+        public string sClave { get; set; }
+        public string sNuevaClave { get; set; }
+        public string sUsuario { get; set; }
+        public bool bEstado { get; set; }
+
     }
 }

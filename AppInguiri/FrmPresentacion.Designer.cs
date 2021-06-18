@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresentacion));
-            this.DgPresentacion = new System.Windows.Forms.DataGridView();
-            this.IdPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvPresentacion = new System.Windows.Forms.DataGridView();
+            this.nIdPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanOpciones = new System.Windows.Forms.Panel();
             this.PanInferior = new System.Windows.Forms.Panel();
             this.ChkTodos = new System.Windows.Forms.CheckBox();
@@ -47,24 +47,24 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DgPresentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPresentacion)).BeginInit();
             this.PanOpciones.SuspendLayout();
             this.PanInferior.SuspendLayout();
             this.PanTodo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // DgPresentacion
+            // DgvPresentacion
             // 
-            this.DgPresentacion.AllowUserToAddRows = false;
-            this.DgPresentacion.AllowUserToDeleteRows = false;
-            this.DgPresentacion.AllowUserToResizeColumns = false;
-            this.DgPresentacion.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
+            this.DgvPresentacion.AllowUserToAddRows = false;
+            this.DgvPresentacion.AllowUserToDeleteRows = false;
+            this.DgvPresentacion.AllowUserToResizeColumns = false;
+            this.DgvPresentacion.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleGreen;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgPresentacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgPresentacion.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.DgPresentacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DgvPresentacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvPresentacion.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.DgvPresentacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,16 +72,16 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgPresentacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgPresentacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgPresentacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPresentacion,
-            this.Descripcion});
-            this.DgPresentacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgPresentacion.Location = new System.Drawing.Point(0, 0);
-            this.DgPresentacion.MultiSelect = false;
-            this.DgPresentacion.Name = "DgPresentacion";
-            this.DgPresentacion.ReadOnly = true;
+            this.DgvPresentacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvPresentacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvPresentacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nIdPresentacion,
+            this.sDescripcion});
+            this.DgvPresentacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvPresentacion.Location = new System.Drawing.Point(0, 0);
+            this.DgvPresentacion.MultiSelect = false;
+            this.DgvPresentacion.Name = "DgvPresentacion";
+            this.DgvPresentacion.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Aquamarine;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,32 +89,32 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgPresentacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.DgPresentacion.RowHeadersVisible = false;
-            this.DgPresentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgPresentacion.Size = new System.Drawing.Size(887, 458);
-            this.DgPresentacion.TabIndex = 10;
+            this.DgvPresentacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvPresentacion.RowHeadersVisible = false;
+            this.DgvPresentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvPresentacion.Size = new System.Drawing.Size(887, 458);
+            this.DgvPresentacion.TabIndex = 10;
             // 
-            // IdPresentacion
+            // nIdPresentacion
             // 
-            this.IdPresentacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdPresentacion.DataPropertyName = "IdPresentacion";
-            this.IdPresentacion.HeaderText = "IdPresentacion";
-            this.IdPresentacion.Name = "IdPresentacion";
-            this.IdPresentacion.ReadOnly = true;
-            this.IdPresentacion.Visible = false;
-            this.IdPresentacion.Width = 109;
+            this.nIdPresentacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nIdPresentacion.DataPropertyName = "nIdPresentacion";
+            this.nIdPresentacion.HeaderText = "IdPresentacion";
+            this.nIdPresentacion.Name = "nIdPresentacion";
+            this.nIdPresentacion.ReadOnly = true;
+            this.nIdPresentacion.Visible = false;
+            this.nIdPresentacion.Width = 109;
             // 
-            // Descripcion
+            // sDescripcion
             // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descripcion.DataPropertyName = "Descripcion";
+            this.sDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.sDescripcion.DataPropertyName = "sDescripcion";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 108;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sDescripcion.HeaderText = "Descripción";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 108;
             // 
             // PanOpciones
             // 
@@ -178,7 +178,7 @@
             // PanTodo
             // 
             this.PanTodo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanTodo.Controls.Add(this.DgPresentacion);
+            this.PanTodo.Controls.Add(this.DgvPresentacion);
             this.PanTodo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanTodo.Location = new System.Drawing.Point(0, 0);
             this.PanTodo.Name = "PanTodo";
@@ -309,7 +309,7 @@
             this.Text = "Mantenimiento de Presentación de Productos";
             this.Load += new System.EventHandler(this.FrmPresentacion_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPresentacion_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.DgPresentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPresentacion)).EndInit();
             this.PanOpciones.ResumeLayout(false);
             this.PanInferior.ResumeLayout(false);
             this.PanInferior.PerformLayout();
@@ -319,9 +319,7 @@
         }
 
         #endregion
-        internal System.Windows.Forms.DataGridView DgPresentacion;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn IdPresentacion;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        internal System.Windows.Forms.DataGridView DgvPresentacion;
         internal System.Windows.Forms.Panel PanOpciones;
         internal System.Windows.Forms.Button BtnEliminar;
         internal System.Windows.Forms.Button BtnSalir;
@@ -333,5 +331,7 @@
         internal System.Windows.Forms.CheckBox ChkTodos;
         internal System.Windows.Forms.Label LblTotal;
         internal System.Windows.Forms.Panel PanTodo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nIdPresentacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
     }
 }

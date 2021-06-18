@@ -70,7 +70,7 @@ namespace AppInguiri
             {
                 if (frmPresent.ShowDialog() == DialogResult.OK)
                 {
-                    if (frmPresent.TxtDescripcion.Text == "")
+                    if (frmPresent.txtDescripcion.Text == "")
                     {
                         bandera = true;
                     }
@@ -89,10 +89,10 @@ namespace AppInguiri
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if (DgPresentacion.Rows.Count==0) return;
+            if (DgvPresentacion.Rows.Count==0) return;
 
-            int idPresSele = Convert.ToInt32(DgPresentacion.CurrentRow.Cells[0].Value);
-            string descSele = Convert.ToString(DgPresentacion.CurrentRow.Cells[1].Value);
+            int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
+            string descSele = Convert.ToString(DgvPresentacion.CurrentRow.Cells[1].Value);
 
             FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
             //frmPresent.MdiParent = this.MdiParent;
@@ -101,38 +101,20 @@ namespace AppInguiri
             frmPresent.descripcion = descSele;
             frmPresent.listarPresentacion = listPresenta;
             frmPresent.Text = "Actualizar Presentación De Productos";
+            frmPresent.ShowDialog();
 
-            bool bandera = true;
-
-            while (bandera)
-            {
-                if (frmPresent.ShowDialog() == DialogResult.OK)
-                {
-                    if (frmPresent.TxtDescripcion.Text == "")
-                    {
-                        bandera = true;
-                    }
-                    else
-                    {
-                        CargarPresentacion();
-                        bandera = false;
-                    }
-                }
-                else
-                {
-                    bandera = false;
-                }
-            }
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (DgPresentacion.Rows.Count == 0) return;
-
+            if (DgvPresentacion.Rows.Count == 0) return;
+            
             List<Presentacion> listPresenta = new List<Presentacion>();
             string ProductoBuscar = Interaction.InputBox("","Buscar Producto...");
             listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
-            DgPresentacion.DataSource = listPresenta;
+            DgvPresentacion.DataSource = listPresenta;
+            LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+
         }
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
@@ -143,18 +125,18 @@ namespace AppInguiri
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             int respuesta = 0;
-            
-            if (DgPresentacion.RowCount>0)
+
+            if (DgvPresentacion.RowCount > 0)
             {
                 string msg = "";
                 if (estado) { estado = false; msg = "Eliminar"; }
                 else { estado = true; msg = "Activar"; }
 
                 DialogResult res;
-                res = MessageBox.Show("¿Desea "+ msg + " el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                res = MessageBox.Show("¿Desea " + msg + " el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.Yes)
                 {
-                    int idPresSele = Convert.ToInt32(DgPresentacion.CurrentRow.Cells[0].Value);
+                    int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
                     respuesta = objPresenNeg.EliminarActivarPresentacion(idPresSele, estado);
 
                     if (respuesta == 1)
@@ -175,7 +157,15 @@ namespace AppInguiri
             }
             else
             {
-                MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (estado)
+                {
+                    MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+
+                    MessageBox.Show("No se registran Presentación para Activar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -212,12 +202,13 @@ namespace AppInguiri
 
             if (listPresenta.Count() > 0)
             {
-                DgPresentacion.DataSource = listPresenta;
-                LblTotal.Text = "Se Encontraron " + DgPresentacion.Rows.Count + " Registros";
+                DgvPresentacion.AutoGenerateColumns = false;
+                DgvPresentacion.DataSource = listPresenta;
+                LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
             }
             else
             {
-                DgPresentacion.DataSource = listPresenta;
+                DgvPresentacion.DataSource = listPresenta;
             }
         }
 
