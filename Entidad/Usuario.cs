@@ -8,7 +8,6 @@ namespace Entidad
 {
     public class Usuario
     {
-        public int nTipo { get; set; }
         public string sIdUsuario { get; set; }
         public string sNombres { get; set; }
         public string sDni { get; set; }

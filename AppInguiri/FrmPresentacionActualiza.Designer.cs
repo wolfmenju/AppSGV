@@ -29,45 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresentacionActualiza));
-            this.CmdCancelar = new System.Windows.Forms.Button();
-            this.CmdGuardar = new System.Windows.Forms.Button();
             this.PanSuperior = new System.Windows.Forms.Panel();
             this.Label8 = new System.Windows.Forms.Label();
             this.LblCodigo = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.CmdGuardar = new System.Windows.Forms.Button();
+            this.CmdCancelar = new System.Windows.Forms.Button();
             this.PanSuperior.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // CmdCancelar
-            // 
-            this.CmdCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CmdCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdCancelar.Image = ((System.Drawing.Image)(resources.GetObject("CmdCancelar.Image")));
-            this.CmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CmdCancelar.Location = new System.Drawing.Point(347, 76);
-            this.CmdCancelar.Name = "CmdCancelar";
-            this.CmdCancelar.Size = new System.Drawing.Size(84, 26);
-            this.CmdCancelar.TabIndex = 5;
-            this.CmdCancelar.Text = "&Cancelar";
-            this.CmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CmdCancelar.UseVisualStyleBackColor = true;
-            this.CmdCancelar.Click += new System.EventHandler(this.CmdCancelar_Click);
-            // 
-            // CmdGuardar
-            // 
-            this.CmdGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.CmdGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdGuardar.Image = ((System.Drawing.Image)(resources.GetObject("CmdGuardar.Image")));
-            this.CmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CmdGuardar.Location = new System.Drawing.Point(257, 76);
-            this.CmdGuardar.Name = "CmdGuardar";
-            this.CmdGuardar.Size = new System.Drawing.Size(84, 26);
-            this.CmdGuardar.TabIndex = 4;
-            this.CmdGuardar.Text = "&Guardar";
-            this.CmdGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CmdGuardar.UseVisualStyleBackColor = true;
-            this.CmdGuardar.Click += new System.EventHandler(this.CmdGuardar_Click);
             // 
             // PanSuperior
             // 
@@ -96,7 +66,7 @@
             // 
             this.LblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCodigo.ForeColor = System.Drawing.Color.Blue;
+            this.LblCodigo.ForeColor = System.Drawing.Color.Green;
             this.LblCodigo.Location = new System.Drawing.Point(88, 11);
             this.LblCodigo.Name = "LblCodigo";
             this.LblCodigo.Size = new System.Drawing.Size(123, 20);
@@ -124,6 +94,36 @@
             this.txtDescripcion.Size = new System.Drawing.Size(354, 20);
             this.txtDescripcion.TabIndex = 0;
             this.txtDescripcion.Tag = "2";
+            // 
+            // CmdGuardar
+            // 
+            this.CmdGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.CmdGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdGuardar.Image = ((System.Drawing.Image)(resources.GetObject("CmdGuardar.Image")));
+            this.CmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CmdGuardar.Location = new System.Drawing.Point(257, 76);
+            this.CmdGuardar.Name = "CmdGuardar";
+            this.CmdGuardar.Size = new System.Drawing.Size(84, 26);
+            this.CmdGuardar.TabIndex = 4;
+            this.CmdGuardar.Text = "&Guardar";
+            this.CmdGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CmdGuardar.UseVisualStyleBackColor = true;
+            this.CmdGuardar.Click += new System.EventHandler(this.CmdGuardar_Click);
+            // 
+            // CmdCancelar
+            // 
+            this.CmdCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CmdCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdCancelar.Image = ((System.Drawing.Image)(resources.GetObject("CmdCancelar.Image")));
+            this.CmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CmdCancelar.Location = new System.Drawing.Point(347, 76);
+            this.CmdCancelar.Name = "CmdCancelar";
+            this.CmdCancelar.Size = new System.Drawing.Size(84, 26);
+            this.CmdCancelar.TabIndex = 5;
+            this.CmdCancelar.Text = "&Cancelar";
+            this.CmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CmdCancelar.UseVisualStyleBackColor = true;
+            this.CmdCancelar.Click += new System.EventHandler(this.CmdCancelar_Click);
             // 
             // FrmPresentacionActualiza
             // 

@@ -16,11 +16,11 @@ namespace AppInguiri
     public partial class FrmPresentacion : Form
     {
         #region Variables Privadas
-        private PresentacionNegocio objPresenNeg =new PresentacionNegocio();
+        private PresentacionNegocio objPresenNeg = new PresentacionNegocio();
         private List<Presentacion> listPresenta = new List<Presentacion>();
         private bool estado = true;
         #endregion
-        
+
         #region Principal Load
 
         public FrmPresentacion()
@@ -59,116 +59,29 @@ namespace AppInguiri
         
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
-            //frmPresent.MdiParent = this.MdiParent;
-            frmPresent.tipo = 2;
-            frmPresent.Text = "Registar Presentación De Productos";
-            frmPresent.listarPresentacion = listPresenta;
-            bool bandera =true;
-
-            while (bandera)
-            {
-                if (frmPresent.ShowDialog() == DialogResult.OK)
-                {
-                    if (frmPresent.txtDescripcion.Text == "")
-                    {
-                        bandera = true;
-                    }
-                    else
-                    {
-                        CargarPresentacion();
-                        bandera = false;
-                    }
-                }
-                else
-                {
-                    bandera = false;
-                }
-            }
+            Agregar();
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            if (DgvPresentacion.Rows.Count==0) return;
-
-            int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
-            string descSele = Convert.ToString(DgvPresentacion.CurrentRow.Cells[1].Value);
-
-            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
-            //frmPresent.MdiParent = this.MdiParent;
-            frmPresent.tipo = 3;
-            frmPresent.idPresentacion = idPresSele;
-            frmPresent.descripcion = descSele;
-            frmPresent.listarPresentacion = listPresenta;
-            frmPresent.Text = "Actualizar Presentación De Productos";
-            frmPresent.ShowDialog();
-
+            Modificar();
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (DgvPresentacion.Rows.Count == 0) return;
-            
-            List<Presentacion> listPresenta = new List<Presentacion>();
-            string ProductoBuscar = Interaction.InputBox("","Buscar Producto...");
-            listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
-            DgvPresentacion.DataSource = listPresenta;
-            LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+            Buscar();
+        }
 
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar();
         }
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
         {
             CargarPresentacion();
         }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            int respuesta = 0;
-
-            if (DgvPresentacion.RowCount > 0)
-            {
-                string msg = "";
-                if (estado) { estado = false; msg = "Eliminar"; }
-                else { estado = true; msg = "Activar"; }
-
-                DialogResult res;
-                res = MessageBox.Show("¿Desea " + msg + " el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (res == DialogResult.Yes)
-                {
-                    int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
-                    respuesta = objPresenNeg.EliminarActivarPresentacion(idPresSele, estado);
-
-                    if (respuesta == 1)
-                    {
-                        if (estado)
-                        {
-                            estado = false;
-                            MessageBox.Show("Se Activó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            estado = true;
-                            MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        CargarPresentacion();
-                    }
-                }
-            }
-            else
-            {
-                if (estado)
-                {
-                    MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-
-                    MessageBox.Show("No se registran Presentación para Activar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
+        
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -191,7 +104,10 @@ namespace AppInguiri
             }
 
             CargarPresentacion();
+
         }
+    
+        
         #endregion
 
         #region Metodo Privados
@@ -211,7 +127,97 @@ namespace AppInguiri
                 DgvPresentacion.DataSource = listPresenta;
             }
         }
+        private void Eliminar()
+        {
+            int respuesta = 0;
 
+            if (DgvPresentacion.RowCount > 0)
+            {
+                string msg = "";
+                if (estado) { estado = false; msg = "Eliminar"; }
+                else { estado = true; msg = "Activar"; }
+
+                DialogResult res;
+                res = MessageBox.Show("¿Desea " + msg + " el registro?", "InguiriSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
+                    respuesta = objPresenNeg.EliminarActivarPresentacion(idPresSele, estado);
+
+                    if (respuesta == 1)
+                    {
+                        if (estado)
+                        {
+                            estado = false;
+                            MessageBox.Show("Se Activó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            estado = true;
+                            MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        CargarPresentacion();
+                    }
+                }
+                else
+                {
+                    if (estado) { estado = false; }
+                    else { estado = true; }
+                }
+            }
+            else
+            {
+                if (estado)
+                {
+                    MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+
+                    MessageBox.Show("No se registran Presentación para Activar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+        private void Buscar()
+        {
+            if (DgvPresentacion.Rows.Count == 0) return;
+
+            List<Presentacion> listPresenta = new List<Presentacion>();
+            string ProductoBuscar = Interaction.InputBox("", "Buscar Producto...");
+            listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
+            DgvPresentacion.DataSource = listPresenta;
+            LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+        }
+        private void Modificar()
+        {
+            if (DgvPresentacion.Rows.Count == 0) return;
+
+            int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
+            string descSele = Convert.ToString(DgvPresentacion.CurrentRow.Cells[1].Value);
+
+            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
+            //frmPresent.MdiParent = this.MdiParent;
+            frmPresent.tipo = 3;
+            frmPresent.idPresentacion = idPresSele;
+            frmPresent.descripcion = descSele;
+            frmPresent.listarPresentacion = listPresenta;
+            frmPresent.Text = "Actualizar Presentación De Productos";
+            frmPresent.ShowDialog();
+        }
+        //validar que solo se acepten letras en la descripcion
+        private void Agregar()
+        {
+            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
+            //frmPresent.MdiParent = this.MdiParent;
+            frmPresent.tipo = 2;
+            frmPresent.Text = "Registar Presentación De Productos";
+            frmPresent.listarPresentacion = listPresenta;
+
+            if (frmPresent.ShowDialog() == DialogResult.OK)
+            {
+                CargarPresentacion();
+            }
+        }
         #endregion
     }
 }

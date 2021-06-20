@@ -18,15 +18,15 @@ namespace Negocio
         }
 
         //Buscar
-        //public List<Usuario> ListarBuscarPresentacion(bool activo, string descripcion)
-        //{
-        //    return PresentacionData.ListarBuscarPresentacion(activo, descripcion);
-        //}
+        public List<Usuario> ListarBuscarUsuario(bool bActivo, string sLogin)
+        {
+            return UsuarioData.ListarBuscarUsuario(bActivo, sLogin);
+        }
 
         //Actualizar
-        public int ActualizarUsuario(Usuario objUser)
+        public int ResearUsuario(Usuario objUser)
         {
-            return UsuarioData.ActualizarUsuario(objUser);
+            return UsuarioData.ResearUsuario(objUser);
         }
 
         //Registrar
@@ -36,10 +36,10 @@ namespace Negocio
         }
 
         ////Eliminar
-        //public int EliminarActivarPresentacion(int idPresentacion, bool estado)
-        //{
-        //    return PresentacionData.EliminarActivarPresentacion(idPresentacion,estado);
-        //}
+        public int EliminarActivarUsuario(int nIdPresentacion, bool bEstado)
+        {
+            return UsuarioData.EliminarActivarUsuario(nIdPresentacion, bEstado);
+        }
 
     }
 }

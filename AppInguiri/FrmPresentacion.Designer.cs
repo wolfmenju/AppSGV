@@ -37,16 +37,16 @@
             this.nIdPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanOpciones = new System.Windows.Forms.Panel();
-            this.PanInferior = new System.Windows.Forms.Panel();
-            this.ChkTodos = new System.Windows.Forms.CheckBox();
-            this.LblTotal = new System.Windows.Forms.Label();
-            this.PanTodo = new System.Windows.Forms.Panel();
-            this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnRefrescar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
+            this.PanInferior = new System.Windows.Forms.Panel();
+            this.ChkTodos = new System.Windows.Forms.CheckBox();
+            this.LblTotal = new System.Windows.Forms.Label();
+            this.PanTodo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPresentacion)).BeginInit();
             this.PanOpciones.SuspendLayout();
             this.PanInferior.SuspendLayout();
@@ -103,7 +103,6 @@
             this.nIdPresentacion.Name = "nIdPresentacion";
             this.nIdPresentacion.ReadOnly = true;
             this.nIdPresentacion.Visible = false;
-            this.nIdPresentacion.Width = 109;
             // 
             // sDescripcion
             // 
@@ -132,58 +131,22 @@
             this.PanOpciones.Size = new System.Drawing.Size(109, 480);
             this.PanOpciones.TabIndex = 11;
             // 
-            // PanInferior
+            // BtnEliminar
             // 
-            this.PanInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.PanInferior.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PanInferior.Controls.Add(this.ChkTodos);
-            this.PanInferior.Controls.Add(this.LblTotal);
-            this.PanInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanInferior.Location = new System.Drawing.Point(0, 460);
-            this.PanInferior.Name = "PanInferior";
-            this.PanInferior.Size = new System.Drawing.Size(889, 20);
-            this.PanInferior.TabIndex = 12;
-            // 
-            // ChkTodos
-            // 
-            this.ChkTodos.AutoSize = true;
-            this.ChkTodos.Checked = true;
-            this.ChkTodos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkTodos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ChkTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkTodos.ForeColor = System.Drawing.Color.Blue;
-            this.ChkTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ChkTodos.Location = new System.Drawing.Point(817, 0);
-            this.ChkTodos.Name = "ChkTodos";
-            this.ChkTodos.Size = new System.Drawing.Size(68, 16);
-            this.ChkTodos.TabIndex = 19;
-            this.ChkTodos.Text = "Activos";
-            this.ChkTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ChkTodos.UseVisualStyleBackColor = true;
-            this.ChkTodos.CheckedChanged += new System.EventHandler(this.ChkTodos_CheckedChanged);
-            // 
-            // LblTotal
-            // 
-            this.LblTotal.AutoSize = true;
-            this.LblTotal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LblTotal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.LblTotal.Location = new System.Drawing.Point(0, 0);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(174, 13);
-            this.LblTotal.TabIndex = 17;
-            this.LblTotal.Text = " Se Encontraron 00 Registros";
-            // 
-            // PanTodo
-            // 
-            this.PanTodo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanTodo.Controls.Add(this.DgvPresentacion);
-            this.PanTodo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanTodo.Location = new System.Drawing.Point(0, 0);
-            this.PanTodo.Name = "PanTodo";
-            this.PanTodo.Size = new System.Drawing.Size(889, 460);
-            this.PanTodo.TabIndex = 17;
+            this.BtnEliminar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnEliminar.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.BtnEliminar.Image = global::AppInguiri.Properties.Resources.X;
+            this.BtnEliminar.Location = new System.Drawing.Point(3, 243);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(102, 52);
+            this.BtnEliminar.TabIndex = 4;
+            this.BtnEliminar.TabStop = false;
+            this.BtnEliminar.Text = "&Eliminar  [F5]";
+            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnSalir
             // 
@@ -204,23 +167,6 @@
             this.BtnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnEliminar.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminar.Image = global::AppInguiri.Properties.Resources.X;
-            this.BtnEliminar.Location = new System.Drawing.Point(3, 243);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(102, 52);
-            this.BtnEliminar.TabIndex = 4;
-            this.BtnEliminar.TabStop = false;
-            this.BtnEliminar.Text = "&Eliminar  [F5]";
-            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnEliminar.UseVisualStyleBackColor = true;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnRefrescar
             // 
@@ -289,6 +235,59 @@
             this.BtnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnModificar.UseVisualStyleBackColor = true;
             this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // PanInferior
+            // 
+            this.PanInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.PanInferior.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PanInferior.Controls.Add(this.ChkTodos);
+            this.PanInferior.Controls.Add(this.LblTotal);
+            this.PanInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PanInferior.Location = new System.Drawing.Point(0, 460);
+            this.PanInferior.Name = "PanInferior";
+            this.PanInferior.Size = new System.Drawing.Size(889, 20);
+            this.PanInferior.TabIndex = 12;
+            // 
+            // ChkTodos
+            // 
+            this.ChkTodos.AutoSize = true;
+            this.ChkTodos.Checked = true;
+            this.ChkTodos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkTodos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ChkTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkTodos.ForeColor = System.Drawing.Color.Blue;
+            this.ChkTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ChkTodos.Location = new System.Drawing.Point(817, 0);
+            this.ChkTodos.Name = "ChkTodos";
+            this.ChkTodos.Size = new System.Drawing.Size(68, 16);
+            this.ChkTodos.TabIndex = 19;
+            this.ChkTodos.Text = "Activos";
+            this.ChkTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ChkTodos.UseVisualStyleBackColor = true;
+            this.ChkTodos.CheckedChanged += new System.EventHandler(this.ChkTodos_CheckedChanged);
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblTotal.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.ForeColor = System.Drawing.Color.Blue;
+            this.LblTotal.Location = new System.Drawing.Point(0, 0);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(174, 13);
+            this.LblTotal.TabIndex = 17;
+            this.LblTotal.Text = " Se Encontraron 00 Registros";
+            // 
+            // PanTodo
+            // 
+            this.PanTodo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanTodo.Controls.Add(this.DgvPresentacion);
+            this.PanTodo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanTodo.Location = new System.Drawing.Point(0, 0);
+            this.PanTodo.Name = "PanTodo";
+            this.PanTodo.Size = new System.Drawing.Size(889, 460);
+            this.PanTodo.TabIndex = 17;
             // 
             // FrmPresentacion
             // 

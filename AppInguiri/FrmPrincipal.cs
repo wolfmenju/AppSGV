@@ -38,5 +38,32 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            //HabilitarMenu(true);
+            ValidarPermisosUsuario();
+        }
+
+        private void ValidarPermisosUsuario()
+        {
+           
+        }
+
+        private void HabilitarMenu(bool bHabilitar)
+        {
+            foreach (var elemento in Ribbon.Items)
+            {
+                var TipoElemento = elemento.GetType();
+
+                if (TipoElemento.FullName == "DevExpress.XtraBars.BarButtonItem")
+                {
+                    BarButtonItem barButton = (BarButtonItem)elemento;
+                    if (bHabilitar)
+                        barButton.Enabled = true;
+                    barButton.Enabled = false;
+                }
+            }
+        }
     }
 }

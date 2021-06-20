@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="AlmacenData.cs" />
+    <Compile Include="PermisoData.cs" />
     <Compile Include="UsuarioData.cs" />
     <Compile Include="PresentacionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

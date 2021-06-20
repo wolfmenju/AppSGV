@@ -36,7 +36,7 @@
             this.barBtnUsuario = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnPresentacion = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCategoria = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProducto = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
@@ -70,6 +70,16 @@
             this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.CodAlmacen = new DevExpress.XtraBars.BarStaticItem();
+            this.NomAlmacen = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.CodUsuario = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
+            this.NomUsuario = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -103,7 +113,7 @@
             this.barBtnUsuario,
             this.barButtonItem4,
             this.barBtnPresentacion,
-            this.barButtonItem6,
+            this.barBtnCategoria,
             this.barButtonItem5,
             this.barBtnProducto,
             this.ribbonGalleryBarItem1,
@@ -136,9 +146,19 @@
             this.barButtonItem34,
             this.barButtonItem35,
             this.barButtonItem36,
-            this.barButtonItem37});
+            this.barButtonItem37,
+            this.barStaticItem1,
+            this.CodAlmacen,
+            this.NomAlmacen,
+            this.barStaticItem2,
+            this.barStaticItem3,
+            this.CodUsuario,
+            this.barStaticItem4,
+            this.NomUsuario,
+            this.barStaticItem5,
+            this.barStaticItem6});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 59;
+            this.ribbon.MaxItemId = 69;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -187,15 +207,17 @@
             this.barBtnPresentacion.Id = 5;
             this.barBtnPresentacion.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPresentacion.LargeGlyph")));
             this.barBtnPresentacion.Name = "barBtnPresentacion";
+            this.barBtnPresentacion.Tag = "2";
             this.barBtnPresentacion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPresentacion_ItemClick);
             // 
-            // barButtonItem6
+            // barBtnCategoria
             // 
-            this.barButtonItem6.Caption = "Categoria";
-            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
-            this.barButtonItem6.Id = 6;
-            this.barButtonItem6.LargeGlyph = global::AppInguiri.Properties.Resources.xLaboratorio;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.barBtnCategoria.Caption = "Categoria";
+            this.barBtnCategoria.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCategoria.Glyph")));
+            this.barBtnCategoria.Id = 6;
+            this.barBtnCategoria.LargeGlyph = global::AppInguiri.Properties.Resources.xLaboratorio;
+            this.barBtnCategoria.Name = "barBtnCategoria";
+            this.barBtnCategoria.Tag = "1";
             // 
             // barButtonItem5
             // 
@@ -423,6 +445,94 @@
             this.barButtonItem37.LargeGlyph = global::AppInguiri.Properties.Resources.xLocal;
             this.barButtonItem37.Name = "barButtonItem37";
             // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "ALMACÉN:";
+            this.barStaticItem1.Id = 59;
+            this.barStaticItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // CodAlmacen
+            // 
+            this.CodAlmacen.Caption = "...";
+            this.CodAlmacen.Id = 60;
+            this.CodAlmacen.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodAlmacen.ItemAppearance.Normal.Options.UseFont = true;
+            this.CodAlmacen.Name = "CodAlmacen";
+            this.CodAlmacen.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // NomAlmacen
+            // 
+            this.NomAlmacen.Caption = "...";
+            this.NomAlmacen.Id = 61;
+            this.NomAlmacen.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomAlmacen.ItemAppearance.Normal.Options.UseFont = true;
+            this.NomAlmacen.Name = "NomAlmacen";
+            this.NomAlmacen.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Caption = "USUARIO:";
+            this.barStaticItem2.Id = 62;
+            this.barStaticItem2.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem2.Name = "barStaticItem2";
+            this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "USUARIO:";
+            this.barStaticItem3.Id = 63;
+            this.barStaticItem3.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem3.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // CodUsuario
+            // 
+            this.CodUsuario.Caption = "...";
+            this.CodUsuario.Id = 64;
+            this.CodUsuario.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodUsuario.ItemAppearance.Normal.Options.UseFont = true;
+            this.CodUsuario.Name = "CodUsuario";
+            this.CodUsuario.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem4
+            // 
+            this.barStaticItem4.Caption = "---";
+            this.barStaticItem4.Id = 65;
+            this.barStaticItem4.Name = "barStaticItem4";
+            this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // NomUsuario
+            // 
+            this.NomUsuario.Caption = "...";
+            this.NomUsuario.Id = 66;
+            this.NomUsuario.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomUsuario.ItemAppearance.Normal.Options.UseFont = true;
+            this.NomUsuario.Name = "NomUsuario";
+            this.NomUsuario.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem5
+            // 
+            this.barStaticItem5.Caption = "FECHA:";
+            this.barStaticItem5.Id = 67;
+            this.barStaticItem5.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem5.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem5.Name = "barStaticItem5";
+            this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem6
+            // 
+            this.barStaticItem6.Caption = "...";
+            this.barStaticItem6.Id = 68;
+            this.barStaticItem6.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem6.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem6.Name = "barStaticItem6";
+            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -436,7 +546,7 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6, true);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barBtnCategoria, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.barBtnPresentacion);
             this.ribbonPageGroup2.ItemLinks.Add(this.barBtnProducto);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
@@ -544,7 +654,16 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 418);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
+            this.ribbonStatusBar.ItemLinks.Add(this.CodAlmacen);
+            this.ribbonStatusBar.ItemLinks.Add(this.NomAlmacen);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
+            this.ribbonStatusBar.ItemLinks.Add(this.CodUsuario);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem4);
+            this.ribbonStatusBar.ItemLinks.Add(this.NomUsuario);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem5);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem6);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 414);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1179, 31);
@@ -571,7 +690,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 449);
+            this.ClientSize = new System.Drawing.Size(1179, 445);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -581,6 +700,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "FrmPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
@@ -593,7 +713,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
@@ -603,7 +722,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barBtnPresentacion;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
@@ -649,5 +767,17 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem36;
         private DevExpress.XtraBars.BarButtonItem barButtonItem37;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem CodAlmacen;
+        private DevExpress.XtraBars.BarStaticItem NomAlmacen;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private DevExpress.XtraBars.BarStaticItem CodUsuario;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem4;
+        private DevExpress.XtraBars.BarStaticItem NomUsuario;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem5;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem6;
+        protected DevExpress.XtraBars.BarButtonItem barBtnCategoria;
     }
 }
