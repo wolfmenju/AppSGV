@@ -9,8 +9,10 @@ namespace Entidad
     public class Permiso
     {
         public int nTipo { get; set; }
+        public string sDescripcion { get; set; }
         public int nIdPermiso { get; set; }
         public int nIdMenu { get; set; }
+        public int nTag { get; set; }
         public string sIdUsuario { get; set; }
         public DateTime dFecha { get; set; }
         public bool bEstado { get; set; }

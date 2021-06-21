@@ -107,7 +107,6 @@ namespace AppInguiri
 
         }
     
-        
         #endregion
 
         #region Metodo Privados

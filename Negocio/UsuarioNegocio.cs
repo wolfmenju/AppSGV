@@ -41,5 +41,10 @@ namespace Negocio
             return UsuarioData.EliminarActivarUsuario(nIdPresentacion, bEstado);
         }
 
+        //Inicio de Sesion
+        public Usuario IniciarSesionUsuario(string sLogin, string sPassword)
+        {
+            return UsuarioData.IniciarSesionUsuario(sLogin, sPassword);
+        }
     }
 }

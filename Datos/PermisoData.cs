@@ -13,7 +13,7 @@ namespace Datos
     public class PermisoData
     {
         //Listar Varios
-        public static List<Permiso> ListarPermiso(bool activo)
+        public static List<Permiso> ListarPermiso(string sIdUsuario)
         {
             int tipo = 1;
             SqlCommand cmd = null;
@@ -27,8 +27,8 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
                 cmd.Parameters.AddWithValue("@IdPermiso", "");
                 cmd.Parameters.AddWithValue("@IdMenu", "");
-                cmd.Parameters.AddWithValue("@IdUsuario", "");
-                cmd.Parameters.AddWithValue("@Estado", activo);
+                cmd.Parameters.AddWithValue("@IdUsuario", sIdUsuario);
+                cmd.Parameters.AddWithValue("@Estado",true);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -36,11 +36,13 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Permiso objPresent = new Permiso();
-                    //objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
-                    //objPresent.sDescripcion = dr[1].ToString();
+                    Permiso objPermiso = new Permiso();
+                    objPermiso.nIdPermiso = int.Parse(dr[0].ToString());
+                    objPermiso.nIdMenu = int.Parse(dr[1].ToString());
+                    objPermiso.nTag = int.Parse(dr[2].ToString());
+                    objPermiso.sDescripcion = dr[3].ToString();
 
-                    listPermiso.Add(objPresent);
+                    listPermiso.Add(objPermiso);
 
                 }
                 return listPermiso;

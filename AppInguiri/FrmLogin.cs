@@ -17,6 +17,8 @@ namespace AppInguiri
         #region Variables Privadas
         AlmacenNegocio objAlmacNeg = new AlmacenNegocio();
         List<Almacen> listAlmac = new List<Almacen>();
+        UsuarioNegocio objUserNeg = new UsuarioNegocio();
+
         #endregion
 
         public FrmLogin()
@@ -43,14 +45,61 @@ namespace AppInguiri
         }
         #endregion
 
-        private void CmdGuardar_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-
+            InicioSession();
         }
-
-        private void CmdCancelar_Click(object sender, EventArgs e)
+        
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #region Metodo Privados
+
+        private void InicioSession()
+        {
+            if (!Validar()) return;
+            
+            Usuario user = objUserNeg.IniciarSesionUsuario(txtUsuario.Text.Trim(),txtClave.Text.Trim());
+
+            if (user != null)
+            {
+                this.Hide();
+                FrmPrincipal frmPrin = new FrmPrincipal();
+                frmPrin.CodAlmacen.Caption = cbxAlmacen.SelectedValue.ToString();
+                frmPrin.NomAlmacen.Caption = cbxAlmacen.Text.ToUpper();
+                frmPrin.CodUsuario.Caption = user.sLogin.ToUpper();
+                frmPrin.NomUsuario.Caption = user.sNombres.ToUpper();
+                frmPrin.CodFecha.Caption = user.sDni;
+                frmPrin.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario Y Claves Incorrectas", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool Validar()
+        {
+            bool resp = true;
+            if (txtUsuario.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Usuario se encuentra vacía, por favor ingrese un valor", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsuario.Focus();
+                resp = false;
+            }
+
+            if (txtClave.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Clave se encuentra vacía, por favor ingrese un valor", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtClave.Focus();
+                resp = false;
+            }
+            
+            return resp;
+        }
+        #endregion
+
     }
 }

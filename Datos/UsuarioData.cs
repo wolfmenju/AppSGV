@@ -115,6 +115,55 @@ namespace Datos
             }
         }
 
+        //Iniciar Sesion
+        public static Usuario IniciarSesionUsuario(string sLogin, string sPassword)
+        {
+            int tipo = 7;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            Usuario objUser = null;
+
+            try
+            {
+                Conexion cn = new Conexion();
+                SqlConnection cnx = cn.getConecta();
+                cmd = new SqlCommand("IAE_Usuario", cnx);
+                cmd.Parameters.AddWithValue("@Tipo", tipo);
+                cmd.Parameters.AddWithValue("@IdUsuario", "");
+                cmd.Parameters.AddWithValue("@Nombres", "");
+                cmd.Parameters.AddWithValue("@Dni", "");
+                cmd.Parameters.AddWithValue("@Direccion", "");
+                cmd.Parameters.AddWithValue("@Celular", "");
+                cmd.Parameters.AddWithValue("@Login", sLogin);
+                cmd.Parameters.AddWithValue("@Clave", sPassword);
+                cmd.Parameters.AddWithValue("@Usuario", "");
+                cmd.Parameters.AddWithValue("@Estado", true);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cnx.Open();
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    objUser = new Usuario();
+                    objUser.sIdUsuario = dr[0].ToString();
+                    objUser.sNombres = dr[1].ToString();
+                    objUser.sLogin = dr[2].ToString();
+                    objUser.sDni = dr[3].ToString();
+
+                }
+                return objUser;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+        }
+
+
         //Registrar
         public static int RegistrarUsuario(Usuario objUser)
         {

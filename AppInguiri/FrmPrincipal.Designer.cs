@@ -79,7 +79,7 @@
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.NomUsuario = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
+            this.CodFecha = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -156,7 +156,7 @@
             this.barStaticItem4,
             this.NomUsuario,
             this.barStaticItem5,
-            this.barStaticItem6});
+            this.CodFecha});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 69;
             this.ribbon.Name = "ribbon";
@@ -190,6 +190,7 @@
             this.barBtnUsuario.Id = 3;
             this.barBtnUsuario.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnUsuario.LargeGlyph")));
             this.barBtnUsuario.Name = "barBtnUsuario";
+            this.barBtnUsuario.Tag = "7";
             this.barBtnUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUsuario_ItemClick);
             // 
             // barButtonItem4
@@ -524,14 +525,14 @@
             this.barStaticItem5.Name = "barStaticItem5";
             this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStaticItem6
+            // CodFecha
             // 
-            this.barStaticItem6.Caption = "...";
-            this.barStaticItem6.Id = 68;
-            this.barStaticItem6.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem6.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem6.Name = "barStaticItem6";
-            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.CodFecha.Caption = "...";
+            this.CodFecha.Id = 68;
+            this.CodFecha.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodFecha.ItemAppearance.Normal.Options.UseFont = true;
+            this.CodFecha.Name = "CodFecha";
+            this.CodFecha.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // ribbonPage1
             // 
@@ -662,7 +663,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem4);
             this.ribbonStatusBar.ItemLinks.Add(this.NomUsuario);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem5);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem6);
+            this.ribbonStatusBar.ItemLinks.Add(this.CodFecha);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 414);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -768,16 +769,16 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem37;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarStaticItem CodAlmacen;
-        private DevExpress.XtraBars.BarStaticItem NomAlmacen;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
-        private DevExpress.XtraBars.BarStaticItem CodUsuario;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
-        private DevExpress.XtraBars.BarStaticItem NomUsuario;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarStaticItem barStaticItem5;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem6;
         protected DevExpress.XtraBars.BarButtonItem barBtnCategoria;
+        public DevExpress.XtraBars.BarStaticItem CodAlmacen;
+        public DevExpress.XtraBars.BarStaticItem NomAlmacen;
+        public DevExpress.XtraBars.BarStaticItem CodUsuario;
+        public DevExpress.XtraBars.BarStaticItem NomUsuario;
+        public DevExpress.XtraBars.BarStaticItem CodFecha;
     }
 }

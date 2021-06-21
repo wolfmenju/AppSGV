@@ -32,7 +32,7 @@ namespace AppInguiri
             bool resp = true;
             if (txtDescripcion.Text.Equals(""))
             {
-                MessageBox.Show("El campo Descripción se encuentra vacía, por favor ingrese un valor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El campo Descripción se encuentra vacía, por favor ingrese un valor", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 resp = false;
             }
 
