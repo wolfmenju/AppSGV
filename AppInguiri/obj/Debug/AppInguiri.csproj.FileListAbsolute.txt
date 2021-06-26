@@ -115,3 +115,5 @@ D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.exe.licenses
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmUsuario.resources
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmUsuarioActualiza.resources
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmLogin.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmCategoria.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmCategoriaActualiza.resources

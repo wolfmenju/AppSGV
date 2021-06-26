@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Datos
 {
-    public class PresentacionData
+    public class CategoriaData
     {
         //Listar Varios
-        public static List<Presentacion> ListarPresentacion(bool estado)
+        public static List<Categoria> ListarCategoria(bool estado)
         {
             int tipo = 1;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Presentacion> listPresentacion = new List<Presentacion>();
+            List<Categoria> listCategoria = new List<Categoria>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", "");
+                cmd.Parameters.AddWithValue("@IdLaboratorio", "");
                 cmd.Parameters.AddWithValue("@Descripcion", "");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
@@ -35,14 +35,14 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Presentacion objPresent = new Presentacion();
-                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.sDescripcion = dr[1].ToString();
+                    Categoria objCateg = new Categoria();
+                    objCateg.nIdCategoria = int.Parse(dr[0].ToString());
+                    objCateg.sDescripcion = dr[1].ToString();
 
-                    listPresentacion.Add(objPresent);
+                    listCategoria.Add(objCateg);
 
                 }
-                return listPresentacion;
+                return listCategoria;
             }
             catch (Exception ex)
             {
@@ -55,19 +55,19 @@ namespace Datos
         }
 
         //Listar Buscar
-        public static List<Presentacion> ListarBuscarPresentacion(bool estado, string descripcion)
+        public static List<Categoria> ListarBuscarCategoria(bool estado, string descripcion)
         {
             int tipo=5;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Presentacion> listPresentacion = new List<Presentacion>();
+            List<Categoria> listCategoria = new List<Categoria>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", "");
+                cmd.Parameters.AddWithValue("@IdLaboratorio", "");
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
@@ -77,14 +77,14 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Presentacion objPresent = new Presentacion();
-                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.sDescripcion = dr[1].ToString();
+                    Categoria objCateg = new Categoria();
+                    objCateg.nIdCategoria = int.Parse(dr[0].ToString());
+                    objCateg.sDescripcion = dr[1].ToString();
 
-                    listPresentacion.Add(objPresent);
+                    listCategoria.Add(objCateg);
 
                 }
-                return listPresentacion;
+                return listCategoria;
             }
             catch (Exception ex)
             {
@@ -97,7 +97,7 @@ namespace Datos
         }
 
         //Actualizar
-        public static int ActualizarPresentacion(int idPresentacion, string descripcion)
+        public static int ActualizarCategoria(int idCategoria, string descripcion)
         {
             int respuesta = 0, tipo = 3 ;
 
@@ -107,12 +107,12 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
+                cmd.Parameters.AddWithValue("@IdLaboratorio", idCategoria);
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                 cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", "");
+                cmd.Parameters.AddWithValue("@Estado","");
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -134,7 +134,7 @@ namespace Datos
         }
 
         //Registrar
-        public static int RegistrarPresentacion(string descripcion)
+        public static int RegistrarCategoria(string descripcion)
         {
             int respuesta = 0, tipo = 2;
 
@@ -144,9 +144,9 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion","");
+                cmd.Parameters.AddWithValue("@IdLaboratorio", "");
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", "");
@@ -171,7 +171,7 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarActivarPresentacion(int idPresentacion,bool estado)
+        public static int EliminarActivarPresentacion(int idCategoria,bool estado)
         {
             int respuesta = 0, tipo=4;
             SqlCommand cmd = null;
@@ -180,9 +180,9 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
+                cmd.Parameters.AddWithValue("@IdLaboratorio", idCategoria);
                 cmd.Parameters.AddWithValue("@Descripcion","");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);

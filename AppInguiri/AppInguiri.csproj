@@ -58,6 +58,18 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoriaActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoriaActualiza.Designer.cs">
+      <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarioActualiza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoriaActualiza.resx">
+      <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarioActualiza.resx">
       <DependentUpon>FrmUsuarioActualiza.cs</DependentUpon>

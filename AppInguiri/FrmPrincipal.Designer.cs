@@ -219,6 +219,7 @@
             this.barBtnCategoria.LargeGlyph = global::AppInguiri.Properties.Resources.xLaboratorio;
             this.barBtnCategoria.Name = "barBtnCategoria";
             this.barBtnCategoria.Tag = "1";
+            this.barBtnCategoria.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCategoria_ItemClick);
             // 
             // barButtonItem5
             // 
