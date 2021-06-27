@@ -24,21 +24,21 @@ namespace Negocio
         }
 
         //Actualizar
-        public int ActualizarCategoria(int idCategoria, string descripcion)
+        public int ActualizarCategoria(Categoria objCat)
         {
-            return CategoriaData.ActualizarCategoria(idCategoria, descripcion);
+            return CategoriaData.ActualizarCategoria(objCat);
         }
 
         //Registrar
-        public int RegistrarCategoria(string descripcion)
+        public int RegistrarCategoria(Categoria objCat)
         {
-            return CategoriaData.RegistrarCategoria(descripcion);
+            return CategoriaData.RegistrarCategoria(objCat);
         }
 
         //Eliminar
-        public int EliminarActivarCategoria(int idCategoria, bool estado)
+        public int EliminarActivarCategoria(Categoria objCat)
         {
-            return CategoriaData.EliminarActivarPresentacion(idCategoria, estado);
+            return CategoriaData.EliminarActivarCategoria(objCat);
         }
     }
 }

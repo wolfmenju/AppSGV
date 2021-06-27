@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Comun;
 
 namespace AppInguiri
 {
@@ -141,7 +142,15 @@ namespace AppInguiri
                 if (res == DialogResult.Yes)
                 {
                     int idCateSele = Convert.ToInt32(DgvCategoria.CurrentRow.Cells[0].Value);
-                    respuesta = objCategNeg.EliminarActivarCategoria(idCateSele, estado);
+
+                    Categoria objCat = new Categoria()
+                    {
+                        nIdCategoria = idCateSele,
+                        bEstado = estado,
+                        sUsuario = Funciones.UsuarioActual()
+                    };
+
+                    respuesta = objCategNeg.EliminarActivarCategoria(objCat);
 
                     if (respuesta == 1)
                     {
@@ -201,7 +210,11 @@ namespace AppInguiri
             frmCateg.descripcion = descSele;
             frmCateg.listarCategoria =listCategoria;
             frmCateg.Text = "Actualizar Categoria De Productos";
-            frmCateg.ShowDialog();
+
+            if (frmCateg.ShowDialog() == DialogResult.OK)
+            {
+                CargarPresentacion();
+            }
         }
         //validar que solo se acepten letras en la descripcion
         private void Agregar()
@@ -210,7 +223,6 @@ namespace AppInguiri
             //frmPresent.MdiParent = this.MdiParent;
             frmCateg.tipo = 2;
             frmCateg.Text = "Registar Categoria De Productos";
-            frmCateg.listarCategoria = listCategoria;
 
             if (frmCateg.ShowDialog() == DialogResult.OK)
             {

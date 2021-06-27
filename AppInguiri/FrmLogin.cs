@@ -1,4 +1,5 @@
-﻿using Entidad;
+﻿using Comun;
+using Entidad;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,7 @@ namespace AppInguiri
                 frmPrin.CodUsuario.Caption = user.sLogin.ToUpper();
                 frmPrin.NomUsuario.Caption = user.sNombres.ToUpper();
                 frmPrin.CodFecha.Caption = user.sDni;
+                Funciones.UsuarioActualSet(user.sLogin.ToUpper());
                 frmPrin.Show();
             }
             else

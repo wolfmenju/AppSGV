@@ -25,7 +25,7 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Usuario", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdUsuario", "");
+                cmd.Parameters.AddWithValue("@IdUsuario", 0);
                 cmd.Parameters.AddWithValue("@Nombres", "");
                 cmd.Parameters.AddWithValue("@Dni", "");
                 cmd.Parameters.AddWithValue("@Direccion", "");
@@ -42,7 +42,7 @@ namespace Datos
                 while (dr.Read())
                 {
                     Usuario objUser = new Usuario();
-                    objUser.sIdUsuario = dr[0].ToString();
+                    objUser.nIdUsuario = Convert.ToInt32(dr[0]);
                     objUser.sNombres = dr[1].ToString();
                     objUser.sLogin = dr[2].ToString();
                     objUser.sDni = dr[3].ToString();
@@ -77,7 +77,7 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Usuario", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdUsuario", "");
+                cmd.Parameters.AddWithValue("@IdUsuario", 0);
                 cmd.Parameters.AddWithValue("@Nombres", "");
                 cmd.Parameters.AddWithValue("@Dni", "");
                 cmd.Parameters.AddWithValue("@Direccion", "");
@@ -93,7 +93,7 @@ namespace Datos
                 while (dr.Read())
                 {
                     Usuario objUser = new Usuario();
-                    objUser.sIdUsuario = dr[0].ToString();
+                    objUser.nIdUsuario = Convert.ToInt32(dr[0]);
                     objUser.sNombres = dr[1].ToString();
                     objUser.sLogin = dr[2].ToString();
                     objUser.sDni = dr[3].ToString();
@@ -145,7 +145,7 @@ namespace Datos
                 if (dr.Read())
                 {
                     objUser = new Usuario();
-                    objUser.sIdUsuario = dr[0].ToString();
+                    objUser.nIdUsuario =Convert.ToInt32(dr[0]);
                     objUser.sNombres = dr[1].ToString();
                     objUser.sLogin = dr[2].ToString();
                     objUser.sDni = dr[3].ToString();
@@ -177,14 +177,14 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Usuario", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdUsuario", 0);
+                cmd.Parameters.AddWithValue("@IdUsuario", objUser.nIdUsuario);
                 cmd.Parameters.AddWithValue("@Nombres", objUser.sNombres);
                 cmd.Parameters.AddWithValue("@Dni", objUser.sDni);
                 cmd.Parameters.AddWithValue("@Direccion", objUser.sDireccion);
                 cmd.Parameters.AddWithValue("@Celular", objUser.sCelular);
                 cmd.Parameters.AddWithValue("@Login", objUser.sLogin);
                 cmd.Parameters.AddWithValue("@Clave", objUser.sClave);
-                cmd.Parameters.AddWithValue("@Usuario", "");
+                cmd.Parameters.AddWithValue("@Usuario", objUser.sUsuario);
                 cmd.Parameters.AddWithValue("@Estado", objUser.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
@@ -219,14 +219,14 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Usuario", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdUsuario", 0);
-                cmd.Parameters.AddWithValue("@Nombres", "");
-                cmd.Parameters.AddWithValue("@Dni", "");
-                cmd.Parameters.AddWithValue("@Direccion", "");
-                cmd.Parameters.AddWithValue("@Celular", "");
+                cmd.Parameters.AddWithValue("@IdUsuario", objUser.nIdUsuario);
+                cmd.Parameters.AddWithValue("@Nombres", objUser.sNombres);
+                cmd.Parameters.AddWithValue("@Dni", objUser.sDni);
+                cmd.Parameters.AddWithValue("@Direccion", objUser.sDireccion);
+                cmd.Parameters.AddWithValue("@Celular", objUser.sCelular);
                 cmd.Parameters.AddWithValue("@Login", objUser.sLogin);
                 cmd.Parameters.AddWithValue("@Clave", objUser.sClave);
-                cmd.Parameters.AddWithValue("@Usuario", "");
+                cmd.Parameters.AddWithValue("@Usuario", objUser.sUsuario);
                 cmd.Parameters.AddWithValue("@Estado", objUser.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
@@ -249,7 +249,7 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarActivarUsuario(int nIdUsuario, bool bEstado)
+        public static int EliminarActivarUsuario(Usuario objUser)
         {
             int respuesta = 0, tipo = 3;
             SqlCommand cmd = null;
@@ -260,15 +260,15 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Usuario", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdUsuario", nIdUsuario);
-                cmd.Parameters.AddWithValue("@Nombres", "");
-                cmd.Parameters.AddWithValue("@Dni", "");
-                cmd.Parameters.AddWithValue("@Direccion", "");
-                cmd.Parameters.AddWithValue("@Celular", "");
-                cmd.Parameters.AddWithValue("@Login", "");
-                cmd.Parameters.AddWithValue("@Clave", "");
-                cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", bEstado);
+                cmd.Parameters.AddWithValue("@IdUsuario", objUser.nIdUsuario);
+                cmd.Parameters.AddWithValue("@Nombres", objUser.sNombres);
+                cmd.Parameters.AddWithValue("@Dni", objUser.sDni);
+                cmd.Parameters.AddWithValue("@Direccion", objUser.sDireccion);
+                cmd.Parameters.AddWithValue("@Celular", objUser.sCelular);
+                cmd.Parameters.AddWithValue("@Login", objUser.sLogin);
+                cmd.Parameters.AddWithValue("@Clave", objUser.sClave);
+                cmd.Parameters.AddWithValue("@Usuario", objUser.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objUser.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 

@@ -68,7 +68,7 @@
             this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSede = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.CodAlmacen = new DevExpress.XtraBars.BarStaticItem();
@@ -145,7 +145,7 @@
             this.barButtonItem33,
             this.barButtonItem34,
             this.barButtonItem35,
-            this.barButtonItem36,
+            this.barBtnSede,
             this.barButtonItem37,
             this.barStaticItem1,
             this.CodAlmacen,
@@ -433,12 +433,14 @@
             this.barButtonItem35.LargeGlyph = global::AppInguiri.Properties.Resources.xInventario;
             this.barButtonItem35.Name = "barButtonItem35";
             // 
-            // barButtonItem36
+            // barBtnSede
             // 
-            this.barButtonItem36.Caption = "Sede";
-            this.barButtonItem36.Id = 57;
-            this.barButtonItem36.LargeGlyph = global::AppInguiri.Properties.Resources.Sede_fw;
-            this.barButtonItem36.Name = "barButtonItem36";
+            this.barBtnSede.Caption = "Sede";
+            this.barBtnSede.Id = 57;
+            this.barBtnSede.LargeGlyph = global::AppInguiri.Properties.Resources.Sede_fw;
+            this.barBtnSede.Name = "barBtnSede";
+            this.barBtnSede.Tag = "5";
+            this.barBtnSede.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSede_ItemClick);
             // 
             // barButtonItem37
             // 
@@ -556,7 +558,7 @@
             // 
             // ribbonPageGroup11
             // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem36);
+            this.ribbonPageGroup11.ItemLinks.Add(this.barBtnSede);
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem37);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Local";
@@ -766,7 +768,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem34;
         private DevExpress.XtraBars.BarButtonItem barButtonItem30;
         private DevExpress.XtraBars.BarButtonItem barButtonItem35;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
+        private DevExpress.XtraBars.BarButtonItem barBtnSede;
         private DevExpress.XtraBars.BarButtonItem barButtonItem37;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;

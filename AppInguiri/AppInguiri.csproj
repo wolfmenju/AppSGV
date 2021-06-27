@@ -70,6 +70,18 @@
     <Compile Include="FrmCategoriaActualiza.Designer.cs">
       <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSedeActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSedeActualiza.Designer.cs">
+      <DependentUpon>FrmSedeActualiza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSede.Designer.cs">
+      <DependentUpon>FrmSede.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarioActualiza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoriaActualiza.resx">
       <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSedeActualiza.resx">
+      <DependentUpon>FrmSedeActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSede.resx">
+      <DependentUpon>FrmSede.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarioActualiza.resx">
       <DependentUpon>FrmUsuarioActualiza.cs</DependentUpon>

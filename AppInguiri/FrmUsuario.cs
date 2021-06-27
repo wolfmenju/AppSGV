@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Comun;
 
 namespace AppInguiri
 {
@@ -151,7 +152,15 @@ namespace AppInguiri
                 if (res == DialogResult.Yes)
                 {
                     int idPresSele = Convert.ToInt32(DgvUsuario.CurrentRow.Cells[0].Value);
-                    respuesta = objUserNeg.EliminarActivarUsuario(idPresSele, estado);
+
+                    Usuario objUser = new Usuario()
+                    {
+                        nIdUsuario = idPresSele,
+                        sUsuario = Funciones.UsuarioActual(),
+                        bEstado = estado
+                    };
+                    
+                    respuesta = objUserNeg.EliminarActivarUsuario(objUser);
 
                     if (respuesta == 1)
                     {
@@ -193,7 +202,6 @@ namespace AppInguiri
             FrmUsuarioActualiza frmUsuario = new FrmUsuarioActualiza();
             frmUsuario.tipo = 2;
             frmUsuario.Text = "Registar Usuario";
-            frmUsuario.listarUsuario = listUsuario;
 
             if (frmUsuario.ShowDialog() == DialogResult.OK)
             {

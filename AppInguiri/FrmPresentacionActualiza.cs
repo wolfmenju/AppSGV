@@ -19,7 +19,6 @@ namespace AppInguiri
         public int tipo=0;
         public int idPresentacion = 0;
         public string descripcion = "";
-        public List<Presentacion> listarPresentacion = null;
         private bool cerrarFormulario = true;
 
         public FrmPresentacionActualiza()
@@ -49,26 +48,40 @@ namespace AppInguiri
             if (!Validar()) return;
             if (tipo == 2)
             {
-                    descSele = txtDescripcion.Text;
-                    respuesta = objPresenNeg.RegistrarPresentacion(descSele);
+                descSele = txtDescripcion.Text;
 
-                    if (respuesta == 1)
-                    {
-                        MessageBox.Show("Se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cerrarFormulario = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        cerrarFormulario = false;
-                    }
-                
+                Presentacion objPre = new Presentacion()
+                {
+                    sDescripcion = descSele,
+                    sUsuario = Funciones.UsuarioActual()
+                };
+
+                respuesta = objPresenNeg.RegistrarPresentacion(objPre);
+
+                if (respuesta == 1)
+                {
+                    MessageBox.Show("Se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cerrarFormulario = true;
+                }
+                else
+                {
+                    MessageBox.Show("No se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cerrarFormulario = false;
+                }
             }
             else
             {
                 idPresSele = Convert.ToInt32(LblCodigo.Text);
                 descSele = txtDescripcion.Text;
-                respuesta = objPresenNeg.ActualizarPresentacion(idPresSele, descSele);
+
+                Presentacion objPre = new Presentacion()
+                {
+                    nIdPresentacion= idPresSele,
+                    sDescripcion = descSele,
+                    sUsuario = Funciones.UsuarioActual()
+                };
+
+                respuesta = objPresenNeg.ActualizarPresentacion(objPre);
 
                 if (respuesta == 1)
                 {

@@ -8,7 +8,22 @@ namespace Entidad
 {
     public class Usuario
     {
-        public string sIdUsuario { get; set; }
+        public Usuario()
+        {
+            this.nIdUsuario =0;
+            this.sNombres = "";
+            this.sDni = "";
+            this.sDireccion = "";
+            this.sCelular = "";
+            this.sLogin = "";
+            this.sClave = "";
+            this.sNuevaClave = "";
+            this.sUsuario = "";
+            this.bEstado = true;
+        }
+
+
+        public int nIdUsuario { get; set; }
         public string sNombres { get; set; }
         public string sDni { get; set; }
         public string sDireccion { get; set; }

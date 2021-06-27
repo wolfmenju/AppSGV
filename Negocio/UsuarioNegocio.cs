@@ -36,9 +36,9 @@ namespace Negocio
         }
 
         ////Eliminar
-        public int EliminarActivarUsuario(int nIdPresentacion, bool bEstado)
+        public int EliminarActivarUsuario(Usuario objUser)
         {
-            return UsuarioData.EliminarActivarUsuario(nIdPresentacion, bEstado);
+            return UsuarioData.EliminarActivarUsuario(objUser);
         }
 
         //Inicio de Sesion

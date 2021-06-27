@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperadorNegocio.cs" />
     <Compile Include="AlmacenNegocio.cs" />
+    <Compile Include="SedeNegocio.cs" />
     <Compile Include="PermisoNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />

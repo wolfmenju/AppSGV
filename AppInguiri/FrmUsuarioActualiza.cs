@@ -17,7 +17,6 @@ namespace AppInguiri
     {
         UsuarioNegocio objUserNeg = new UsuarioNegocio();
         public int tipo=0;
-        public List<Usuario> listarUsuario = null;
         private bool cerrarFormulario = true;
         
         public FrmUsuarioActualiza()

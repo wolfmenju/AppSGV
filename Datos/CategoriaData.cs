@@ -97,7 +97,7 @@ namespace Datos
         }
 
         //Actualizar
-        public static int ActualizarCategoria(int idCategoria, string descripcion)
+        public static int ActualizarCategoria(Categoria objCat)
         {
             int respuesta = 0, tipo = 3 ;
 
@@ -109,10 +109,10 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", idCategoria);
-                cmd.Parameters.AddWithValue("@Descripcion", descripcion);
-                cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado","");
+                cmd.Parameters.AddWithValue("@IdLaboratorio", objCat.nIdCategoria);
+                cmd.Parameters.AddWithValue("@Descripcion", objCat.sDescripcion);
+                cmd.Parameters.AddWithValue("@Usuario", objCat.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objCat.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -134,7 +134,7 @@ namespace Datos
         }
 
         //Registrar
-        public static int RegistrarCategoria(string descripcion)
+        public static int RegistrarCategoria(Categoria objCat)
         {
             int respuesta = 0, tipo = 2;
 
@@ -146,10 +146,10 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", "");
-                cmd.Parameters.AddWithValue("@Descripcion", descripcion);
-                cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", "");
+                cmd.Parameters.AddWithValue("@IdLaboratorio", objCat.nIdCategoria);
+                cmd.Parameters.AddWithValue("@Descripcion", objCat.sDescripcion);
+                cmd.Parameters.AddWithValue("@Usuario", objCat.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objCat.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -171,7 +171,7 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarActivarPresentacion(int idCategoria,bool estado)
+        public static int EliminarActivarCategoria(Categoria objCat)
         {
             int respuesta = 0, tipo=4;
             SqlCommand cmd = null;
@@ -182,10 +182,10 @@ namespace Datos
                 SqlConnection cnx = cn.getConecta();
                 cmd = new SqlCommand("IAE_Categoria", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", idCategoria);
-                cmd.Parameters.AddWithValue("@Descripcion","");
-                cmd.Parameters.AddWithValue("@Usuario", "");
-                cmd.Parameters.AddWithValue("@Estado", estado);
+                cmd.Parameters.AddWithValue("@IdLaboratorio", objCat.nIdCategoria);
+                cmd.Parameters.AddWithValue("@Descripcion", objCat.sDescripcion);
+                cmd.Parameters.AddWithValue("@Usuario", objCat.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objCat.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 

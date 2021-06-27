@@ -10,23 +10,24 @@ using System.Windows.Forms;
 
 namespace Datos
 {
-    public class PresentacionData
+    public class SedeData
     {
         //Listar Varios
-        public static List<Presentacion> ListarPresentacion(bool estado)
+        public static List<Sede> ListarSede(bool estado)
         {
             int tipo = 1;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Presentacion> listPresentacion = new List<Presentacion>();
+            List<Sede> listSede = new List<Sede>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Sede", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", "");
+                cmd.Parameters.AddWithValue("@IdSede", "");
                 cmd.Parameters.AddWithValue("@Descripcion", "");
+                cmd.Parameters.AddWithValue("@Direccion", "");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -35,14 +36,15 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Presentacion objPresent = new Presentacion();
-                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.sDescripcion = dr[1].ToString();
+                    Sede objSed = new Sede();
+                    objSed.nIdSede = int.Parse(dr[0].ToString());
+                    objSed.sDescripcion = dr[1].ToString();
+                    objSed.sDireccion = dr[2].ToString();
 
-                    listPresentacion.Add(objPresent);
+                    listSede.Add(objSed);
 
                 }
-                return listPresentacion;
+                return listSede;
             }
             catch (Exception ex)
             {
@@ -55,20 +57,21 @@ namespace Datos
         }
 
         //Listar Buscar
-        public static List<Presentacion> ListarBuscarPresentacion(bool estado, string descripcion)
+        public static List<Sede> ListarBuscarSede(bool estado, string descripcion)
         {
             int tipo=5;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Presentacion> listPresentacion = new List<Presentacion>();
+            List<Sede> listSede = new List<Sede>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Sede", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", "");
+                cmd.Parameters.AddWithValue("@IdSede", "");
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@Direccion", "");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -77,14 +80,14 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Presentacion objPresent = new Presentacion();
-                    objPresent.nIdPresentacion = int.Parse(dr[0].ToString());
-                    objPresent.sDescripcion = dr[1].ToString();
+                    Sede objSed = new Sede();
+                    objSed.nIdSede = int.Parse(dr[0].ToString());
+                    objSed.sDescripcion = dr[1].ToString();
 
-                    listPresentacion.Add(objPresent);
+                    listSede.Add(objSed);
 
                 }
-                return listPresentacion;
+                return listSede;
             }
             catch (Exception ex)
             {
@@ -97,7 +100,7 @@ namespace Datos
         }
 
         //Actualizar
-        public static int ActualizarPresentacion(Presentacion objPre)
+        public static int ActualizarSede(Sede objSed)
         {
             int respuesta = 0, tipo = 3 ;
 
@@ -107,12 +110,13 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Sede", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", objPre.nIdPresentacion);
-                cmd.Parameters.AddWithValue("@Descripcion", objPre.sDescripcion);
-                cmd.Parameters.AddWithValue("@Usuario", objPre.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objPre.bEstado);
+                cmd.Parameters.AddWithValue("@IdSede", objSed.nIdSede);
+                cmd.Parameters.AddWithValue("@Descripcion", objSed.sDescripcion);
+                cmd.Parameters.AddWithValue("@Direccion", objSed.sDireccion);
+                cmd.Parameters.AddWithValue("@Usuario", objSed.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objSed.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -134,7 +138,7 @@ namespace Datos
         }
 
         //Registrar
-        public static int RegistrarPresentacion(Presentacion objPre)
+        public static int RegistrarSede(Sede objSed)
         {
             int respuesta = 0, tipo = 2;
 
@@ -144,12 +148,13 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Sede", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", objPre.nIdPresentacion);
-                cmd.Parameters.AddWithValue("@Descripcion", objPre.sDescripcion);
-                cmd.Parameters.AddWithValue("@Usuario", objPre.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objPre.bEstado);
+                cmd.Parameters.AddWithValue("@IdSede", objSed.nIdSede);
+                cmd.Parameters.AddWithValue("@Descripcion", objSed.sDescripcion);
+                cmd.Parameters.AddWithValue("@Direccion",objSed.sDireccion);
+                cmd.Parameters.AddWithValue("@Usuario",objSed.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objSed.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -171,7 +176,7 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarActivarPresentacion(Presentacion objPre)
+        public static int EliminarActivarSede(Sede objSed)
         {
             int respuesta = 0, tipo=4;
             SqlCommand cmd = null;
@@ -180,12 +185,13 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Presentacion", cnx);
+                cmd = new SqlCommand("IAE_Sede", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdPresentacion", objPre.nIdPresentacion);
-                cmd.Parameters.AddWithValue("@Descripcion", objPre.sDescripcion);
-                cmd.Parameters.AddWithValue("@Usuario", objPre.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objPre.bEstado);
+                cmd.Parameters.AddWithValue("@IdSede", objSed.nIdSede);
+                cmd.Parameters.AddWithValue("@Descripcion", objSed.sDescripcion);
+                cmd.Parameters.AddWithValue("@Direccion", objSed.sDireccion);
+                cmd.Parameters.AddWithValue("@Usuario", objSed.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objSed.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 

@@ -14,24 +14,24 @@ using Comun;
 
 namespace AppInguiri
 {
-    public partial class FrmPresentacion : Form
+    public partial class FrmSede : Form
     {
         #region Variables Privadas
-        private PresentacionNegocio objPresenNeg = new PresentacionNegocio();
-        private List<Presentacion> listPresenta = new List<Presentacion>();
+        private SedeNegocio objSedeNeg = new SedeNegocio();
+        private List<Sede> listSede = new List<Sede>();
         private bool estado = true;
         #endregion
 
         #region Principal Load
 
-        public FrmPresentacion()
+        public FrmSede()
         {
             InitializeComponent();
         }
 
         private void FrmPresentacion_Load(object sender, EventArgs e)
         {
-            CargarPresentacion();
+            CargarSede();
         }
         #endregion
 
@@ -80,7 +80,7 @@ namespace AppInguiri
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
         {
-            CargarPresentacion();
+            CargarSede();
         }
         
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -104,34 +104,34 @@ namespace AppInguiri
                 BtnEliminar.Text = "&Activar  [F5]";
             }
 
-            CargarPresentacion();
+            CargarSede();
 
         }
     
         #endregion
 
         #region Metodo Privados
-        private void CargarPresentacion()
+        private void CargarSede()
         {
-            listPresenta.Clear();
-            listPresenta = objPresenNeg.ListarPresentacion(estado);
+            listSede.Clear();
+            listSede = objSedeNeg.ListarSede(estado);
 
-            if (listPresenta.Count() > 0)
+            if (listSede.Count() > 0)
             {
-                DgvPresentacion.AutoGenerateColumns = false;
-                DgvPresentacion.DataSource = listPresenta;
-                LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+                DgvSede.AutoGenerateColumns = false;
+                DgvSede.DataSource = listSede;
+                LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
             }
             else
             {
-                DgvPresentacion.DataSource = listPresenta;
+                DgvSede.DataSource = listSede;
             }
         }
         private void Eliminar()
         {
             int respuesta = 0;
 
-            if (DgvPresentacion.RowCount > 0)
+            if (DgvSede.RowCount > 0)
             {
                 string msg = "";
                 if (estado) { estado = false; msg = "Eliminar"; }
@@ -141,16 +141,16 @@ namespace AppInguiri
                 res = MessageBox.Show("¿Desea " + msg + " el registro?", "InguiriSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.Yes)
                 {
-                    int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
+                    int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
 
-                    Presentacion objPre = new Presentacion()
+                    Sede objSede = new Sede()
                     {
-                        nIdPresentacion = idPresSele,
-                        bEstado = estado,
-                        sUsuario = Funciones.UsuarioActual()
+                        nIdSede = idSedeSele,
+                        sUsuario = Funciones.UsuarioActual(),
+                        bEstado=estado
                     };
-                    
-                    respuesta = objPresenNeg.EliminarActivarPresentacion(objPre);
+
+                    respuesta = objSedeNeg.EliminarActivarSede(objSede);
 
                     if (respuesta == 1)
                     {
@@ -164,7 +164,7 @@ namespace AppInguiri
                             estado = true;
                             MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        CargarPresentacion();
+                        CargarSede();
                     }
                 }
                 else
@@ -188,45 +188,45 @@ namespace AppInguiri
         }
         private void Buscar()
         {
-            if (DgvPresentacion.Rows.Count == 0) return;
+            if (DgvSede.Rows.Count == 0) return;
 
-            List<Presentacion> listPresenta = new List<Presentacion>();
-            string ProductoBuscar = Interaction.InputBox("", "Buscar Producto...");
-            listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
-            DgvPresentacion.DataSource = listPresenta;
-            LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+            List<Sede> listSede = new List<Sede>();
+            string ProductoBuscar = Interaction.InputBox("", "Buscar Sede...");
+            listSede = objSedeNeg.ListarBuscarSede(estado, ProductoBuscar);
+            DgvSede.DataSource = listSede;
+            LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
         }
         private void Modificar()
         {
-            if (DgvPresentacion.Rows.Count == 0) return;
+            if (DgvSede.Rows.Count == 0) return;
 
-            int idPresSele = Convert.ToInt32(DgvPresentacion.CurrentRow.Cells[0].Value);
-            string descSele = Convert.ToString(DgvPresentacion.CurrentRow.Cells[1].Value);
+            int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
+            string descSele = Convert.ToString(DgvSede.CurrentRow.Cells[1].Value);
+            string direSele = Convert.ToString(DgvSede.CurrentRow.Cells[2].Value);
 
-            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
-            //frmPresent.MdiParent = this.MdiParent;
-            frmPresent.tipo = 3;
-            frmPresent.idPresentacion = idPresSele;
-            frmPresent.descripcion = descSele;
-            frmPresent.Text = "Actualizar Presentación De Productos";
+            FrmSedeActualiza frmSede = new FrmSedeActualiza();
+            frmSede.tipo = 3;
+            frmSede.idSede = idSedeSele;
+            frmSede.descripcion = descSele;
+            frmSede.direccion = direSele;
+            frmSede.Text = "Actualizar Sede";
             
-            if (frmPresent.ShowDialog() == DialogResult.OK)
+            if (frmSede.ShowDialog() == DialogResult.OK)
             {
-                CargarPresentacion();
+                CargarSede();
             }
-
         }
         //validar que solo se acepten letras en la descripcion
         private void Agregar()
         {
-            FrmPresentacionActualiza frmPresent = new FrmPresentacionActualiza();
+            FrmSedeActualiza frmSede = new FrmSedeActualiza();
             //frmPresent.MdiParent = this.MdiParent;
-            frmPresent.tipo = 2;
-            frmPresent.Text = "Registar Presentación De Productos";
-
-            if (frmPresent.ShowDialog() == DialogResult.OK)
+            frmSede.tipo = 2;
+            frmSede.Text = "Registar Sede";
+       
+            if (frmSede.ShowDialog() == DialogResult.OK)
             {
-                CargarPresentacion();
+                CargarSede();
             }
         }
         #endregion

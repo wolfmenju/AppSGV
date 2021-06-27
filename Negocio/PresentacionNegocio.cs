@@ -24,21 +24,21 @@ namespace Negocio
         }
 
         //Actualizar
-        public int ActualizarPresentacion(int idPresentacion, string descripcion)
+        public int ActualizarPresentacion(Presentacion objPre)
         {
-            return PresentacionData.ActualizarPresentacion(idPresentacion, descripcion);
+            return PresentacionData.ActualizarPresentacion(objPre);
         }
 
         //Registrar
-        public int RegistrarPresentacion(string descripcion)
+        public int RegistrarPresentacion(Presentacion objPre)
         {
-            return PresentacionData.RegistrarPresentacion(descripcion);
+            return PresentacionData.RegistrarPresentacion(objPre);
         }
 
         //Eliminar
-        public int EliminarActivarPresentacion(int idPresentacion, bool estado)
+        public int EliminarActivarPresentacion(Presentacion objPre)
         {
-            return PresentacionData.EliminarActivarPresentacion(idPresentacion,estado);
+            return PresentacionData.EliminarActivarPresentacion(objPre);
         }
 
     }

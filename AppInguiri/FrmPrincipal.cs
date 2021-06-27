@@ -106,5 +106,12 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void barBtnSede_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmSede fr = new FrmSede();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }

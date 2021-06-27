@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-    public class Almacen
+    public class Sede
     {
-        public Almacen()
+        public Sede()
         {
-            this.nIdAlmacen = 0;
+            this.nIdSede = 0;
             this.sDescripcion = "";
             this.sDireccion = "";
-            this.nIdSede = 0;
             this.sUsuario = "";
             this.bEstado = true;
         }
-        
-        public int nIdAlmacen { get; set; }
+
+        public int nIdSede { get; set; }
         public string sDescripcion { get; set; }
         public string sDireccion { get; set; }
-        public int nIdSede { get; set; }
         public string sUsuario { get; set; }
         public bool bEstado { get; set; }
     }
