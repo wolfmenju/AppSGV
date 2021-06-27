@@ -113,5 +113,19 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void barBtnAlmacen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmAlmacen fr = new FrmAlmacen();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void barBtnDocumentos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmDocumento fr = new FrmDocumento();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }

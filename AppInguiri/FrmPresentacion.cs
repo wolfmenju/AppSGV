@@ -157,12 +157,12 @@ namespace AppInguiri
                         if (estado)
                         {
                             estado = false;
-                            MessageBox.Show("Se Activó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Se Activó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
                             estado = true;
-                            MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Se Eliminó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         CargarPresentacion();
                     }
@@ -177,12 +177,12 @@ namespace AppInguiri
             {
                 if (estado)
                 {
-                    MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Presentación para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
-                    MessageBox.Show("No se registran Presentación para Activar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Presentación para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -191,10 +191,14 @@ namespace AppInguiri
             if (DgvPresentacion.Rows.Count == 0) return;
 
             List<Presentacion> listPresenta = new List<Presentacion>();
-            string ProductoBuscar = Interaction.InputBox("", "Buscar Producto...");
-            listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, ProductoBuscar);
-            DgvPresentacion.DataSource = listPresenta;
-            LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+            string PresenBuscar = Interaction.InputBox("", "Buscar Presentación...");
+
+            if (!PresenBuscar.Equals(""))
+            {
+                listPresenta = objPresenNeg.ListarBuscarPresentacion(estado, PresenBuscar.Trim());
+                DgvPresentacion.DataSource = listPresenta;
+                LblTotal.Text = "Se Encontraron " + DgvPresentacion.Rows.Count + " Registros";
+            }
         }
         private void Modificar()
         {

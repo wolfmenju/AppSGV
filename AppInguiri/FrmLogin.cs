@@ -35,7 +35,7 @@ namespace AppInguiri
         #region Metodos Privados
         private void CargarAlmacen()
         {
-            listAlmac = objAlmacNeg.ListarAlmacen();
+            listAlmac = objAlmacNeg.ListarAlmacen(true);
 
             if(listAlmac.Count>0)
             {

@@ -83,6 +83,7 @@ namespace Datos
                     Sede objSed = new Sede();
                     objSed.nIdSede = int.Parse(dr[0].ToString());
                     objSed.sDescripcion = dr[1].ToString();
+                    objSed.sDireccion = dr[2].ToString();
 
                     listSede.Add(objSed);
 

@@ -14,29 +14,31 @@ using Comun;
 
 namespace AppInguiri
 {
-    public partial class FrmSede : Form
+    public partial class FrmAlmacen : Form
     {
         #region Variables Privadas
-        private SedeNegocio objSedeNeg = new SedeNegocio();
-        private List<Sede> listSede = new List<Sede>();
+        private AlmacenNegocio objAlmNeg = new AlmacenNegocio();
+        private List<Almacen> listAlm = new List<Almacen>();
         private bool estado = true;
         #endregion
 
         #region Principal Load
 
-        public FrmSede()
+        public FrmAlmacen()
         {
             InitializeComponent();
         }
 
-        private void FrmPresentacion_Load(object sender, EventArgs e)
+        private void FrmAlmacen_Load(object sender, EventArgs e)
         {
-            CargarSede();
+            CargarAlmacen();
         }
+
         #endregion
 
         #region Eventos
-        private void FrmPresentacion_KeyDown(object sender, KeyEventArgs e)
+
+        private void FrmAlmacen_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -57,6 +59,7 @@ namespace AppInguiri
                     break;
             }
         }
+
         
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
@@ -80,7 +83,7 @@ namespace AppInguiri
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
         {
-            CargarSede();
+            CargarAlmacen();
         }
         
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -104,34 +107,34 @@ namespace AppInguiri
                 BtnEliminar.Text = "&Activar  [F5]";
             }
 
-            CargarSede();
+            CargarAlmacen();
 
         }
     
         #endregion
 
         #region Metodo Privados
-        private void CargarSede()
+        private void CargarAlmacen()
         {
-            listSede.Clear();
-            listSede = objSedeNeg.ListarSede(estado);
+            listAlm.Clear();
+            listAlm = objAlmNeg.ListarAlmacen(estado);
 
-            if (listSede.Count() > 0)
+            if (listAlm.Count() > 0)
             {
-                DgvSede.AutoGenerateColumns = false;
-                DgvSede.DataSource = listSede;
-                LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
+                DgvAlmacen.AutoGenerateColumns = false;
+                DgvAlmacen.DataSource = listAlm;
+                LblTotal.Text = "Se Encontraron " + DgvAlmacen.Rows.Count + " Registros";
             }
             else
             {
-                DgvSede.DataSource = listSede;
+                DgvAlmacen.DataSource = listAlm;
             }
         }
         private void Eliminar()
         {
             int respuesta = 0;
 
-            if (DgvSede.RowCount > 0)
+            if (DgvAlmacen.RowCount > 0)
             {
                 string msg = "";
                 if (estado) { estado = false; msg = "Eliminar"; }
@@ -141,16 +144,16 @@ namespace AppInguiri
                 res = MessageBox.Show("¿Desea " + msg + " el registro?", "InguiriSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.Yes)
                 {
-                    int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
+                    int idAlmSele = Convert.ToInt32(DgvAlmacen.CurrentRow.Cells[0].Value);
 
-                    Sede objSede = new Sede()
+                    Almacen objAlm = new Almacen()
                     {
-                        nIdSede = idSedeSele,
+                        nIdSede = idAlmSele,
                         sUsuario = Funciones.UsuarioActual(),
                         bEstado=estado
                     };
 
-                    respuesta = objSedeNeg.EliminarActivarSede(objSede);
+                    respuesta = objAlmNeg.EliminarActivarAlmacen(objAlm);
 
                     if (respuesta == 1)
                     {
@@ -164,7 +167,8 @@ namespace AppInguiri
                             estado = true;
                             MessageBox.Show("Se Eliminó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        CargarSede();
+
+                        CargarAlmacen();
                     }
                 }
                 else
@@ -177,62 +181,63 @@ namespace AppInguiri
             {
                 if (estado)
                 {
-                    MessageBox.Show("No se registran Presentación para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Almacén para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
-                    MessageBox.Show("No se registran Presentación para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Almacén para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
         private void Buscar()
         {
-            if (DgvSede.Rows.Count == 0) return;
+            if (DgvAlmacen.Rows.Count == 0) return;
 
-            List<Sede> listSede = new List<Sede>();
-            string SedeBuscar = Interaction.InputBox("", "Buscar Sede...");
+            List<Almacen> listAlm = new List<Almacen>();
+            string AlmacenBuscar = Interaction.InputBox("", "Buscar Almacen...");
 
-            if (!SedeBuscar.Equals(""))
+            if (!AlmacenBuscar.Equals(""))
             {
-                listSede = objSedeNeg.ListarBuscarSede(estado, SedeBuscar.Trim());
-                DgvSede.DataSource = listSede;
-                LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
+                listAlm = objAlmNeg.ListarBuscarAlmacen(estado, AlmacenBuscar.Trim());
+                DgvAlmacen.DataSource = listAlm;
+                LblTotal.Text = "Se Encontraron " + DgvAlmacen.Rows.Count + " Registros";
             }
         }
         private void Modificar()
         {
-            if (DgvSede.Rows.Count == 0) return;
+            if (DgvAlmacen.Rows.Count == 0) return;
 
-            int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
-            string descSele = Convert.ToString(DgvSede.CurrentRow.Cells[1].Value);
-            string direSele = Convert.ToString(DgvSede.CurrentRow.Cells[2].Value);
+            int idAlmSele = Convert.ToInt32(DgvAlmacen.CurrentRow.Cells[0].Value);
+            string descSele = Convert.ToString(DgvAlmacen.CurrentRow.Cells[1].Value);
+            string direSele = Convert.ToString(DgvAlmacen.CurrentRow.Cells[2].Value);
 
-            FrmSedeActualiza frmSede = new FrmSedeActualiza();
-            frmSede.tipo = 3;
-            frmSede.idSede = idSedeSele;
-            frmSede.descripcion = descSele;
-            frmSede.direccion = direSele;
-            frmSede.Text = "Actualizar Sede";
+            FrmAlmacenActualiza frmAlm = new FrmAlmacenActualiza();
+            frmAlm.tipo = 3;
+            frmAlm.idSede = idAlmSele;
+            frmAlm.descripcion = descSele;
+            frmAlm.direccion = direSele;
+            frmAlm.Text = "Actualizar Almacén";
             
-            if (frmSede.ShowDialog() == DialogResult.OK)
+            if (frmAlm.ShowDialog() == DialogResult.OK)
             {
-                CargarSede();
+                CargarAlmacen();
             }
         }
         //validar que solo se acepten letras en la descripcion
         private void Agregar()
         {
-            FrmSedeActualiza frmSede = new FrmSedeActualiza();
+            FrmAlmacenActualiza frmAlm = new FrmAlmacenActualiza();
             //frmPresent.MdiParent = this.MdiParent;
-            frmSede.tipo = 2;
-            frmSede.Text = "Registar Sede";
+            frmAlm.tipo = 2;
+            frmAlm.Text = "Registar Almacen";
        
-            if (frmSede.ShowDialog() == DialogResult.OK)
+            if (frmAlm.ShowDialog() == DialogResult.OK)
             {
-                CargarSede();
+                CargarAlmacen();
             }
         }
         #endregion
+        
     }
 }

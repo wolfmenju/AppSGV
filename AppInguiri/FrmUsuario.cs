@@ -133,9 +133,13 @@ namespace AppInguiri
 
             List<Usuario> listUsuario = new List<Usuario>();
             string UsuarioBuscar = Interaction.InputBox("", "Buscar Usuario...");
-            listUsuario = objUserNeg.ListarBuscarUsuario(estado, UsuarioBuscar);
-            DgvUsuario.DataSource = listUsuario;
-            LblTotal.Text = "Se Encontraron " + DgvUsuario.Rows.Count + " Registros";
+
+            if (!UsuarioBuscar.Equals(""))
+            {
+                listUsuario = objUserNeg.ListarBuscarUsuario(estado, UsuarioBuscar);
+                DgvUsuario.DataSource = listUsuario;
+                LblTotal.Text = "Se Encontraron " + DgvUsuario.Rows.Count + " Registros";
+            }
         }
         private void Eliminar()
         {

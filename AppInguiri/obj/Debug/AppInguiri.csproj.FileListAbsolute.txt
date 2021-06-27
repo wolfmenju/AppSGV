@@ -119,3 +119,7 @@ D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmCategoria.resourc
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmCategoriaActualiza.resources
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmSede.resources
 D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmSedeActualiza.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmAlmacen.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmAlmacenActualiza.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmDocumento.resources
+D:\PROYECTOS_VS_2015\AppSGV\AppInguiri\obj\Debug\AppInguiri.FrmDocumentoActualiza.resources

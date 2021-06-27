@@ -13,17 +13,16 @@ using System.Windows.Forms;
 
 namespace AppInguiri
 {
-    public partial class FrmCategoriaActualiza : Form
+    public partial class FrmDocumentoActualiza : Form
     {
-        CategoriaNegocio objCategNeg = new CategoriaNegocio();
-
+        DocumentoNegocio objDocumentNeg = new DocumentoNegocio();
         public int tipo=0;
-        public int idCategoria = 0;
+        public string idDoc = "";
         public string descripcion = "";
-        public List<Categoria> listarCategoria = null;
+        public string abreviatura="";
         private bool cerrarFormulario = true;
 
-        public FrmCategoriaActualiza()
+        public FrmDocumentoActualiza()
         {
             InitializeComponent();
         }
@@ -37,6 +36,21 @@ namespace AppInguiri
                 resp = false;
             }
 
+            else if (txtAbreviatura.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Abreviatura se encuentra vacía, por favor ingrese un valor", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                resp = false;
+            }
+
+            else if (tipo == 2)
+            {
+                if (txtCodigo.Text.Equals(""))
+                {
+                    MessageBox.Show("El campo Codigo se encuentra vacía, por favor ingrese un valor", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    resp = false;
+                }
+            }
+
             cerrarFormulario = resp;
             return resp;
         }
@@ -44,21 +58,25 @@ namespace AppInguiri
 
         private void CmdGuardar_Click(object sender, EventArgs e)
         {
-            int respuesta =0, idCateSele=0;
+            int respuesta = 0;
+            string idDocSele="";
             string descSele = "";
+            string abrevi = "";
 
             if (!Validar()) return;
             if (tipo == 2)
             {
                 descSele = txtDescripcion.Text;
+                abrevi = txtAbreviatura.Text;
 
-                Categoria objCat = new Categoria()
+                Documento objPre = new Documento()
                 {
                     sDescripcion = descSele,
+                    sAbreviatura=abrevi,
                     sUsuario = Funciones.UsuarioActual()
                 };
 
-                respuesta = objCategNeg.RegistrarCategoria(objCat);
+                respuesta = objDocumentNeg.RegistrarDocumento(objPre);
 
                 if (respuesta == 1)
                 {
@@ -70,20 +88,22 @@ namespace AppInguiri
                     MessageBox.Show("No se Registro Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cerrarFormulario = false;
                 }
-
             }
             else
             {
-                idCateSele = Convert.ToInt32(LblCodigo.Text);
+                idDocSele = txtCodigo.Text;
                 descSele = txtDescripcion.Text;
+                abrevi = txtAbreviatura.Text;
 
-                Categoria objCat = new Categoria()
+                Documento objDoc = new Documento()
                 {
-                    nIdCategoria = idCategoria,
+                    sIdDocumento= idDocSele,
                     sDescripcion = descSele,
+                    sAbreviatura= abrevi,
                     sUsuario = Funciones.UsuarioActual()
                 };
-                respuesta = objCategNeg.ActualizarCategoria(objCat);
+
+                respuesta = objDocumentNeg.ActualizarDocumento(objDoc);
 
                 if (respuesta == 1)
                 {
@@ -105,25 +125,27 @@ namespace AppInguiri
             cerrarFormulario = true;
             this.Close();
         }
-
-        private void FrmPresentacionNuevo_Load(object sender, EventArgs e)
+        
+        private void FrmDocumentoActualiza_Load(object sender, EventArgs e)
         {
             if (tipo == 2)
             {
-                LblCodigo.Text = "AUTOGENERADO";
+                txtCodigo.Enabled = true;
             }
             else
             {
                 //Actualizar
-                LblCodigo.Text = Convert.ToString(idCategoria.ToString());
+                txtCodigo.Text = Convert.ToString(idDoc.ToString());
                 txtDescripcion.Text = descripcion.ToString();
+                txtAbreviatura.Text = abreviatura.ToString();
             }
         }
 
-        private void FrmPresentacionActualiza_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmDocumentoActualiza_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (cerrarFormulario) e.Cancel = false;
             else e.Cancel = true;
         }
+        
     }
 }

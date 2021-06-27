@@ -70,6 +70,30 @@
     <Compile Include="FrmCategoriaActualiza.Designer.cs">
       <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlmacen.Designer.cs">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlmacenActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlmacenActualiza.Designer.cs">
+      <DependentUpon>FrmAlmacenActualiza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocumento.Designer.cs">
+      <DependentUpon>FrmDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocumentoActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocumentoActualiza.Designer.cs">
+      <DependentUpon>FrmDocumentoActualiza.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSedeActualiza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +152,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoriaActualiza.resx">
       <DependentUpon>FrmCategoriaActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlmacen.resx">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlmacenActualiza.resx">
+      <DependentUpon>FrmAlmacenActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocumento.resx">
+      <DependentUpon>FrmDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocumentoActualiza.resx">
+      <DependentUpon>FrmDocumentoActualiza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSedeActualiza.resx">
       <DependentUpon>FrmSedeActualiza.cs</DependentUpon>

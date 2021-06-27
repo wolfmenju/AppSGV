@@ -157,12 +157,12 @@ namespace AppInguiri
                         if (estado)
                         {
                             estado = false;
-                            MessageBox.Show("Se Activó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Se Activó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
                             estado = true;
-                            MessageBox.Show("Se Eliminó Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Se Eliminó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         CargarPresentacion();
                     }
@@ -177,12 +177,12 @@ namespace AppInguiri
             {
                 if (estado)
                 {
-                    MessageBox.Show("No se registran Presentación para eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Categoria para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
-                    MessageBox.Show("No se registran Presentación para Activar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Categoria para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -191,10 +191,14 @@ namespace AppInguiri
             if (DgvCategoria.Rows.Count == 0) return;
 
             List<Categoria> listCateg = new List<Categoria>();
-            string ProductoBuscar = Interaction.InputBox("", "Buscar Categoria...");
-            listCateg = objCategNeg.ListarBuscarCategoria(estado, ProductoBuscar);
-            DgvCategoria.DataSource = listCateg;
-            LblTotal.Text = "Se Encontraron " + DgvCategoria.Rows.Count + " Registros";
+            string CategporiaBuscar = Interaction.InputBox("", "Buscar Categoria...");
+
+            if (!CategporiaBuscar.Equals(""))
+            {
+                listCateg = objCategNeg.ListarBuscarCategoria(estado, CategporiaBuscar);
+                DgvCategoria.DataSource = listCateg;
+                LblTotal.Text = "Se Encontraron " + DgvCategoria.Rows.Count + " Registros";
+            }
         }
         private void Modificar()
         {

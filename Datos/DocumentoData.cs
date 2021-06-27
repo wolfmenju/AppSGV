@@ -10,43 +10,41 @@ using System.Windows.Forms;
 
 namespace Datos
 {
-    public class AlmacenData
+    public class DocumentoData
     {
         //Listar Varios
-        public static List<Almacen> ListarAlmacen(bool estado)
+        public static List<Documento> ListarDocumento(bool estado)
         {
             int tipo = 1;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Almacen> listAlmacen = new List<Almacen>();
+            List<Documento> listDocumento = new List<Documento>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Almacen", cnx);
+                cmd = new SqlCommand("IAE_Documento", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdAlmacen", "");
+                cmd.Parameters.AddWithValue("@IdDocumento", "");
                 cmd.Parameters.AddWithValue("@Descripcion", "");
-                cmd.Parameters.AddWithValue("@Direccion", "");
-                cmd.Parameters.AddWithValue("@IdSede", "");
+                cmd.Parameters.AddWithValue("@Abreviatura", "");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
-
                 dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    Almacen objAlmacen = new Almacen();
-                    objAlmacen.nIdAlmacen = int.Parse(dr[0].ToString());
-                    objAlmacen.sDescripcion = dr[1].ToString();
-                    objAlmacen.sDireccion = dr[2].ToString();
-                    
-                    listAlmacen.Add(objAlmacen);
+                    Documento objDocument = new Documento();
+                    objDocument.sIdDocumento = dr[0].ToString();
+                    objDocument.sDescripcion = dr[1].ToString();
+                    objDocument.sAbreviatura = dr[2].ToString();
+
+                    listDocumento.Add(objDocument);
 
                 }
-                return listAlmacen;
+                return listDocumento;
             }
             catch (Exception ex)
             {
@@ -59,22 +57,21 @@ namespace Datos
         }
 
         //Listar Buscar
-        public static List<Almacen> ListarBuscarAlmacen(bool estado, string descripcion)
+        public static List<Documento> ListarBuscarDocumento(bool estado, string descripcion)
         {
-            int tipo = 7;
+            int tipo=7;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
-            List<Almacen> listAlmacen = new List<Almacen>();
+            List<Documento> listDocumento = new List<Documento>();
             try
             {
                 Conexion cn = new Conexion();
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Almacen", cnx);
+                cmd = new SqlCommand("IAE_Documento", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdAlmacen", "");
+                cmd.Parameters.AddWithValue("@IdDocumento", "");
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
-                cmd.Parameters.AddWithValue("@Direccion", "");
-                cmd.Parameters.AddWithValue("@IdSede", "");
+                cmd.Parameters.AddWithValue("@Abreviatura", "");
                 cmd.Parameters.AddWithValue("@Usuario", "");
                 cmd.Parameters.AddWithValue("@Estado", estado);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -83,14 +80,15 @@ namespace Datos
 
                 while (dr.Read())
                 {
-                    Almacen objAlm = new Almacen();
-                    objAlm.nIdSede = int.Parse(dr[0].ToString());
-                    objAlm.sDescripcion = dr[1].ToString();
-                    objAlm.sDireccion = dr[2].ToString();
+                    Documento objDocument = new Documento();
+                    objDocument.sIdDocumento =dr[0].ToString();
+                    objDocument.sDescripcion = dr[1].ToString();
+                    objDocument.sAbreviatura = dr[2].ToString();
 
-                    listAlmacen.Add(objAlm);
+                    listDocumento.Add(objDocument);
+
                 }
-                return listAlmacen;
+                return listDocumento;
             }
             catch (Exception ex)
             {
@@ -103,9 +101,9 @@ namespace Datos
         }
 
         //Actualizar
-        public static int ActualizarAlmacen(Almacen objAlm)
+        public static int ActualizarDocumento(Documento objDocumt)
         {
-            int respuesta = 0, tipo = 3;
+            int respuesta = 0, tipo = 3 ;
 
             SqlCommand cmd = null;
             Conexion cn = new Conexion();
@@ -113,24 +111,23 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Almacen", cnx);
+                cmd = new SqlCommand("IAE_Documento", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdAlmacen", objAlm.nIdAlmacen);
-                cmd.Parameters.AddWithValue("@Descripcion", objAlm.sDescripcion);
-                cmd.Parameters.AddWithValue("@Direccion", objAlm.sDireccion);
-                cmd.Parameters.AddWithValue("@IdSede", objAlm.nIdSede);
-                cmd.Parameters.AddWithValue("@Usuario", objAlm.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objAlm.bEstado);
+                cmd.Parameters.AddWithValue("@IdDocumento",objDocumt.sIdDocumento);
+                cmd.Parameters.AddWithValue("@Descripcion", objDocumt.sDescripcion);
+                cmd.Parameters.AddWithValue("@Abreviatura", objDocumt.sAbreviatura);
+                cmd.Parameters.AddWithValue("@Usuario", objDocumt.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objDocumt.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
-                respuesta = cmd.ExecuteNonQuery();
+                respuesta= cmd.ExecuteNonQuery();
 
             }
             catch (Exception ex)
             {
                 respuesta = 2;
-                MessageBox.Show(ex.Message, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message,"InguiriSoft",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             finally
             {
@@ -141,7 +138,8 @@ namespace Datos
             return respuesta;
         }
 
-        public static int RegistrarAlmacen(Almacen objAlm)
+        //Registrar
+        public static int RegistrarDocumento(Documento objDocumt)
         {
             int respuesta = 0, tipo = 2;
 
@@ -151,14 +149,13 @@ namespace Datos
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Almacen", cnx);
+                cmd = new SqlCommand("IAE_Documento", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdAlmacen", objAlm.nIdAlmacen);
-                cmd.Parameters.AddWithValue("@Descripcion", objAlm.sDescripcion);
-                cmd.Parameters.AddWithValue("@Direccion", objAlm.sDireccion);
-                cmd.Parameters.AddWithValue("@IdSede", objAlm.nIdSede);
-                cmd.Parameters.AddWithValue("@Usuario", objAlm.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objAlm.bEstado);
+                cmd.Parameters.AddWithValue("@IdDocumento", objDocumt.sIdDocumento);
+                cmd.Parameters.AddWithValue("@Descripcion", objDocumt.sDescripcion);
+                cmd.Parameters.AddWithValue("@Abreviatura", objDocumt.sAbreviatura);
+                cmd.Parameters.AddWithValue("@Usuario", objDocumt.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objDocumt.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -168,7 +165,7 @@ namespace Datos
             catch (Exception ex)
             {
                 respuesta = 2;
-                MessageBox.Show(ex.Message, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -180,23 +177,22 @@ namespace Datos
         }
 
         //Eliminar
-        public static int EliminarActivarAlmacen(Almacen objAlm)
+        public static int EliminarActivarDocumento(Documento objDocumt)
         {
-            int respuesta = 0, tipo = 4;
+            int respuesta = 0, tipo=4;
             SqlCommand cmd = null;
             Conexion cn = new Conexion();
 
             try
             {
                 SqlConnection cnx = cn.getConecta();
-                cmd = new SqlCommand("IAE_Almacen", cnx);
+                cmd = new SqlCommand("IAE_Documento", cnx);
                 cmd.Parameters.AddWithValue("@Tipo", tipo);
-                cmd.Parameters.AddWithValue("@IdAlmacen", objAlm.nIdAlmacen);
-                cmd.Parameters.AddWithValue("@Descripcion", objAlm.sDescripcion);
-                cmd.Parameters.AddWithValue("@Direccion", objAlm.sDireccion);
-                cmd.Parameters.AddWithValue("@IdSede", objAlm.nIdSede);
-                cmd.Parameters.AddWithValue("@Usuario", objAlm.sUsuario);
-                cmd.Parameters.AddWithValue("@Estado", objAlm.bEstado);
+                cmd.Parameters.AddWithValue("@IdDocumento", objDocumt.sIdDocumento);
+                cmd.Parameters.AddWithValue("@Descripcion", objDocumt.sDescripcion);
+                cmd.Parameters.AddWithValue("@Abreviatura", objDocumt.sAbreviatura);
+                cmd.Parameters.AddWithValue("@Usuario", objDocumt.sUsuario);
+                cmd.Parameters.AddWithValue("@Estado", objDocumt.bEstado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cnx.Open();
 
@@ -206,7 +202,7 @@ namespace Datos
             catch (Exception ex)
             {
                 respuesta = 2;
-                MessageBox.Show(ex.Message, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {

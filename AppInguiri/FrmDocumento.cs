@@ -14,29 +14,29 @@ using Comun;
 
 namespace AppInguiri
 {
-    public partial class FrmSede : Form
+    public partial class FrmDocumento : Form
     {
         #region Variables Privadas
-        private SedeNegocio objSedeNeg = new SedeNegocio();
-        private List<Sede> listSede = new List<Sede>();
+        private DocumentoNegocio objDocumentNeg = new DocumentoNegocio();
+        private List<Documento> listDocumento = new List<Documento>();
         private bool estado = true;
         #endregion
 
         #region Principal Load
 
-        public FrmSede()
+        public FrmDocumento()
         {
             InitializeComponent();
         }
 
-        private void FrmPresentacion_Load(object sender, EventArgs e)
+        private void FrmDocumento_Load(object sender, EventArgs e)
         {
-            CargarSede();
+            CargarDocumento();
         }
+
         #endregion
 
-        #region Eventos
-        private void FrmPresentacion_KeyDown(object sender, KeyEventArgs e)
+        private void FrmDocumento_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -57,7 +57,9 @@ namespace AppInguiri
                     break;
             }
         }
-        
+
+        #region Eventos
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             Agregar();
@@ -80,7 +82,7 @@ namespace AppInguiri
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
         {
-            CargarSede();
+            CargarDocumento();
         }
         
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -104,34 +106,34 @@ namespace AppInguiri
                 BtnEliminar.Text = "&Activar  [F5]";
             }
 
-            CargarSede();
+            CargarDocumento();
 
         }
     
         #endregion
 
         #region Metodo Privados
-        private void CargarSede()
+        private void CargarDocumento()
         {
-            listSede.Clear();
-            listSede = objSedeNeg.ListarSede(estado);
+            listDocumento.Clear();
+            listDocumento = objDocumentNeg.ListarDocumento(estado);
 
-            if (listSede.Count() > 0)
+            if (listDocumento.Count() > 0)
             {
-                DgvSede.AutoGenerateColumns = false;
-                DgvSede.DataSource = listSede;
-                LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
+                DgvDocumento.AutoGenerateColumns = false;
+                DgvDocumento.DataSource = listDocumento;
+                LblTotal.Text = "Se Encontraron " + DgvDocumento.Rows.Count + " Registros";
             }
             else
             {
-                DgvSede.DataSource = listSede;
+                DgvDocumento.DataSource = listDocumento;
             }
         }
         private void Eliminar()
         {
             int respuesta = 0;
 
-            if (DgvSede.RowCount > 0)
+            if (DgvDocumento.RowCount > 0)
             {
                 string msg = "";
                 if (estado) { estado = false; msg = "Eliminar"; }
@@ -141,16 +143,16 @@ namespace AppInguiri
                 res = MessageBox.Show("¿Desea " + msg + " el registro?", "InguiriSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.Yes)
                 {
-                    int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
+                    string idDocSele = DgvDocumento.CurrentRow.Cells[0].Value.ToString();
 
-                    Sede objSede = new Sede()
+                    Documento objDoc= new Documento()
                     {
-                        nIdSede = idSedeSele,
-                        sUsuario = Funciones.UsuarioActual(),
-                        bEstado=estado
+                        sIdDocumento = idDocSele,
+                        bEstado = estado,
+                        sUsuario = Funciones.UsuarioActual()
                     };
-
-                    respuesta = objSedeNeg.EliminarActivarSede(objSede);
+                    
+                    respuesta = objDocumentNeg.EliminarActivarDocumento(objDoc);
 
                     if (respuesta == 1)
                     {
@@ -164,7 +166,8 @@ namespace AppInguiri
                             estado = true;
                             MessageBox.Show("Se Eliminó Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        CargarSede();
+
+                        CargarDocumento();
                     }
                 }
                 else
@@ -177,62 +180,65 @@ namespace AppInguiri
             {
                 if (estado)
                 {
-                    MessageBox.Show("No se registran Presentación para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Documento para eliminar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
-                    MessageBox.Show("No se registran Presentación para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se registran Documento para Activar", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
         private void Buscar()
         {
-            if (DgvSede.Rows.Count == 0) return;
+            if (DgvDocumento.Rows.Count == 0) return;
 
-            List<Sede> listSede = new List<Sede>();
-            string SedeBuscar = Interaction.InputBox("", "Buscar Sede...");
+            List<Documento> listDocumento = new List<Documento>();
+            string DocBuscar = Interaction.InputBox("", "Buscar Documento...");
 
-            if (!SedeBuscar.Equals(""))
+            if (!DocBuscar.Equals(""))
             {
-                listSede = objSedeNeg.ListarBuscarSede(estado, SedeBuscar.Trim());
-                DgvSede.DataSource = listSede;
-                LblTotal.Text = "Se Encontraron " + DgvSede.Rows.Count + " Registros";
+                listDocumento = objDocumentNeg.ListarBuscarDocumento(estado, DocBuscar.Trim());
+                DgvDocumento.DataSource = listDocumento;
+                LblTotal.Text = "Se Encontraron " + DgvDocumento.Rows.Count + " Registros";
             }
         }
         private void Modificar()
         {
-            if (DgvSede.Rows.Count == 0) return;
+            if (DgvDocumento.Rows.Count == 0) return;
 
-            int idSedeSele = Convert.ToInt32(DgvSede.CurrentRow.Cells[0].Value);
-            string descSele = Convert.ToString(DgvSede.CurrentRow.Cells[1].Value);
-            string direSele = Convert.ToString(DgvSede.CurrentRow.Cells[2].Value);
-
-            FrmSedeActualiza frmSede = new FrmSedeActualiza();
-            frmSede.tipo = 3;
-            frmSede.idSede = idSedeSele;
-            frmSede.descripcion = descSele;
-            frmSede.direccion = direSele;
-            frmSede.Text = "Actualizar Sede";
+            string idDocSele = DgvDocumento.CurrentRow.Cells[0].Value.ToString();
+            string descSele = Convert.ToString(DgvDocumento.CurrentRow.Cells[1].Value);
+            string abreSele = Convert.ToString(DgvDocumento.CurrentRow.Cells[2].Value);
             
-            if (frmSede.ShowDialog() == DialogResult.OK)
+            FrmDocumentoActualiza frmDocument = new FrmDocumentoActualiza();
+            //frmPresent.MdiParent = this.MdiParent;
+            frmDocument.tipo = 3;
+            frmDocument.idDoc = idDocSele;
+            frmDocument.descripcion = descSele;
+            frmDocument.abreviatura = abreSele;
+            frmDocument.Text = "Actualizar Documento";
+            
+            if (frmDocument.ShowDialog() == DialogResult.OK)
             {
-                CargarSede();
+                CargarDocumento();
             }
+
         }
         //validar que solo se acepten letras en la descripcion
         private void Agregar()
         {
-            FrmSedeActualiza frmSede = new FrmSedeActualiza();
+            FrmDocumentoActualiza frmDocument = new FrmDocumentoActualiza();
             //frmPresent.MdiParent = this.MdiParent;
-            frmSede.tipo = 2;
-            frmSede.Text = "Registar Sede";
-       
-            if (frmSede.ShowDialog() == DialogResult.OK)
+            frmDocument.tipo = 2;
+            frmDocument.Text = "Registar Documento";
+
+            if (frmDocument.ShowDialog() == DialogResult.OK)
             {
-                CargarSede();
+                CargarDocumento();
             }
         }
         #endregion
+
     }
 }

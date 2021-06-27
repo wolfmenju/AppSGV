@@ -82,12 +82,12 @@ namespace AppInguiri
 
                     if (respuesta == 1)
                     {
-                        MessageBox.Show("Se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se Registro Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("No se Registro Correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No se Registro Correctamente", "InguiriSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         cerrarFormulario = false;
                     }
                 }

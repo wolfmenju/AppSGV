@@ -40,7 +40,7 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProducto = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDocumentos = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -69,7 +69,7 @@
             this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSede = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnAlmacen = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.CodAlmacen = new DevExpress.XtraBars.BarStaticItem();
             this.NomAlmacen = new DevExpress.XtraBars.BarStaticItem();
@@ -117,7 +117,7 @@
             this.barButtonItem5,
             this.barBtnProducto,
             this.ribbonGalleryBarItem1,
-            this.barButtonItem7,
+            this.barBtnDocumentos,
             this.barButtonItem8,
             this.barButtonItem9,
             this.barButtonItem10,
@@ -146,7 +146,7 @@
             this.barButtonItem34,
             this.barButtonItem35,
             this.barBtnSede,
-            this.barButtonItem37,
+            this.barBtnAlmacen,
             this.barStaticItem1,
             this.CodAlmacen,
             this.NomAlmacen,
@@ -181,7 +181,6 @@
             this.barBtnProveedor.Id = 2;
             this.barBtnProveedor.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnProveedor.LargeGlyph")));
             this.barBtnProveedor.Name = "barBtnProveedor";
-            this.barBtnProveedor.Tag = "10";
             this.barBtnProveedor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnProveedor_ItemClick);
             // 
             // barBtnUsuario
@@ -239,12 +238,14 @@
             this.ribbonGalleryBarItem1.Id = 10;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
-            // barButtonItem7
+            // barBtnDocumentos
             // 
-            this.barButtonItem7.Caption = "Documentos";
-            this.barButtonItem7.Id = 11;
-            this.barButtonItem7.LargeGlyph = global::AppInguiri.Properties.Resources.xDocumento;
-            this.barButtonItem7.Name = "barButtonItem7";
+            this.barBtnDocumentos.Caption = "Documentos";
+            this.barBtnDocumentos.Id = 11;
+            this.barBtnDocumentos.LargeGlyph = global::AppInguiri.Properties.Resources.xDocumento;
+            this.barBtnDocumentos.Name = "barBtnDocumentos";
+            this.barBtnDocumentos.Tag = "11";
+            this.barBtnDocumentos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDocumentos_ItemClick);
             // 
             // barButtonItem8
             // 
@@ -442,12 +443,14 @@
             this.barBtnSede.Tag = "5";
             this.barBtnSede.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSede_ItemClick);
             // 
-            // barButtonItem37
+            // barBtnAlmacen
             // 
-            this.barButtonItem37.Caption = "Almacén";
-            this.barButtonItem37.Id = 58;
-            this.barButtonItem37.LargeGlyph = global::AppInguiri.Properties.Resources.xLocal;
-            this.barButtonItem37.Name = "barButtonItem37";
+            this.barBtnAlmacen.Caption = "Almacén";
+            this.barBtnAlmacen.Id = 58;
+            this.barBtnAlmacen.LargeGlyph = global::AppInguiri.Properties.Resources.xLocal;
+            this.barBtnAlmacen.Name = "barBtnAlmacen";
+            this.barBtnAlmacen.Tag = "6";
+            this.barBtnAlmacen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAlmacen_ItemClick);
             // 
             // barStaticItem1
             // 
@@ -559,7 +562,7 @@
             // ribbonPageGroup11
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.barBtnSede);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem37);
+            this.ribbonPageGroup11.ItemLinks.Add(this.barBtnAlmacen);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Local";
             // 
@@ -579,7 +582,7 @@
             // 
             // ribbonPageGroup4
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barBtnDocumentos);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
@@ -732,7 +735,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barBtnProducto;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barBtnDocumentos;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
@@ -769,7 +772,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem30;
         private DevExpress.XtraBars.BarButtonItem barButtonItem35;
         private DevExpress.XtraBars.BarButtonItem barBtnSede;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
+        private DevExpress.XtraBars.BarButtonItem barBtnAlmacen;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
