@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlmacenNegocio.cs" />
+    <Compile Include="DocumentoSerieNegocio.cs" />
     <Compile Include="DocumentoNegocio.cs" />
     <Compile Include="SedeNegocio.cs" />
     <Compile Include="PermisoNegocio.cs" />

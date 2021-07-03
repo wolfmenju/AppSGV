@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDocumentoSerieActualiza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocumentoSerieActualiza.Designer.cs">
+      <DependentUpon>FrmDocumentoSerieActualiza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocumentoSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocumentoSerie.Designer.cs">
+      <DependentUpon>FrmDocumentoSerie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDocumentoSerieActualiza.resx">
+      <DependentUpon>FrmDocumentoSerieActualiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocumentoSerie.resx">
+      <DependentUpon>FrmDocumentoSerie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

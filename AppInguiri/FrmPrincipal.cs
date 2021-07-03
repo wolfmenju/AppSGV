@@ -127,5 +127,12 @@ namespace AppInguiri
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void barBtnDocumentosSerie_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmDocumentoSerie fr = new FrmDocumentoSerie();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }

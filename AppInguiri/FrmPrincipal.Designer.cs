@@ -41,7 +41,7 @@
             this.barBtnProducto = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.barBtnDocumentos = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDocumentosSerie = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
@@ -118,7 +118,7 @@
             this.barBtnProducto,
             this.ribbonGalleryBarItem1,
             this.barBtnDocumentos,
-            this.barButtonItem8,
+            this.barBtnDocumentosSerie,
             this.barButtonItem9,
             this.barButtonItem10,
             this.barButtonItem11,
@@ -247,12 +247,14 @@
             this.barBtnDocumentos.Tag = "11";
             this.barBtnDocumentos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDocumentos_ItemClick);
             // 
-            // barButtonItem8
+            // barBtnDocumentosSerie
             // 
-            this.barButtonItem8.Caption = "Series de Documentos";
-            this.barButtonItem8.Id = 12;
-            this.barButtonItem8.LargeGlyph = global::AppInguiri.Properties.Resources.Wordpad;
-            this.barButtonItem8.Name = "barButtonItem8";
+            this.barBtnDocumentosSerie.Caption = "Series de Documentos";
+            this.barBtnDocumentosSerie.Id = 12;
+            this.barBtnDocumentosSerie.LargeGlyph = global::AppInguiri.Properties.Resources.Wordpad;
+            this.barBtnDocumentosSerie.Name = "barBtnDocumentosSerie";
+            this.barBtnDocumentosSerie.Tag = "12";
+            this.barBtnDocumentosSerie.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDocumentosSerie_ItemClick);
             // 
             // barButtonItem9
             // 
@@ -583,7 +585,7 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barBtnDocumentos);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barBtnDocumentosSerie);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem11);
@@ -737,7 +739,7 @@
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
         private DevExpress.XtraBars.BarButtonItem barBtnDocumentos;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barBtnDocumentosSerie;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
